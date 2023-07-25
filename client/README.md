@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# FoodChapChap Web App - README
+    Welcome to FoodChapChap, an on-demand platform that aims to revolutionize the dining experience by providing a Pre-Order Service that allows customers to enjoy the benefits of a restaurant experience without the hassle of waiting in queues for meal preparation and the bill. This README will guide you through the project's overview, vision, user research, and key features.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Brief
+    FoodChapChap is centered around convenience, simplicity, and efficiency. Our goal is to provide customers with the ability to pre-order their favorite meals from restaurants of their choice. By doing so, their food will be ready upon arrival, saving valuable time during their limited break times. With the ordering process automated from start to finish, we aim to enhance the overall dining experience for both customers and restaurants.
 
-## Available Scripts
+# Project Vision
+    Our vision is to create a seamless and engaging platform that automates the food ordering process, benefiting restaurants, customers, and administrators alike. We aim to make the ordering process simple, efficient, and enjoyable for all parties involved.
 
-In the project directory, you can run:
+# User Research
+    The Need for FoodChapChap
+    The platform addresses the gap left by food delivery giants, specifically catering to Dine-in and Take-away customers who often face long queues for food preparation and bill payments. Currently, customers visiting a restaurant experience delays due to queues, leading to frustration for both customers and overwhelmed restaurants.
 
-### `npm start`
+# Dissatisfaction
+    The Food Pre-Ordering platform seeks to benefit both customers and restaurants by streamlining the ordering process. Customers will have a more enjoyable dining experience with reduced wait times, while restaurants can manage orders more efficiently.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Product Features
+    FoodChapChap aims to offer the following key features:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### User Profiles, Sign Up, and Login: 
+    Customers and restaurants will have dedicated user profiles, allowing them to easily manage their preferences and order history. Users can sign up and log in securely to access the platform.
 
-### `npm test`
+### Terms and Conditions: 
+    Clear and concise terms and conditions will be provided for both customers and restaurants to ensure a transparent and trustworthy service.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ ###   Search Functionality: 
+ Users can search for restaurants based on various categories, including Location, Ambience, Cuisines, Fast food, and Price, enabling them to find their preferred dining options effortlessly.
 
-### `npm run build`
+###  Wide Menu Options:
+     Restaurants will offer a wide range of menu options, including fast food, fries, burgers, drinks, salads, and more. Special offers and discounts on specific meals and cuisines will also be available.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## TECHNOLOGIES USED
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    HTML
+    CSS
+    React.js
+    Ruby on rails
+    ProgreSQl
+    
+# Installation and Setup
+    To run the FoodChapChap web app locally, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Clone this repository to your local machine.
+    Install the required dependencies using npm install.
+    Set up the database and backend server as specified in the provided documentation.
+    Launch the web app using npm start in client directory.
+## Contributing
+We welcome contributions from the community to make FoodChapChap even better. Please follow our contribution guidelines and code of conduct, outlined in the CONTRIBUTING.md file.
 
-### `npm run eject`
+## Feedback and Support
+If you encounter any issues, have suggestions, or need support, please open an issue in the repository. We appreciate your feedback and are here to help.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## License
+FoodChapChap is released under the MIT License. Feel free to use, modify, and distribute the code as per the terms of the license.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for your interest in FoodChapChap! We hope this web app brings simplicity and convenience to your dining experience. Happy ordering! 🍔🍕🥗
