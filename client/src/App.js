@@ -1,8 +1,10 @@
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
 import ContactUs from './components/ContactUs';
+import HomePage from './pages/HomePage';
 // import Restaurant from '/components/Restaurant';
 // import Category from '/components/Category';
 
@@ -18,11 +20,12 @@ function App() {
      
       <BrowserRouter>
      
-      <BrowserRouter>
+      
 
 
       <NavBar/>
       <Home/>
+      <HomePage/>
 
       <Routes>
 
@@ -54,11 +57,7 @@ function App() {
           <ContactUs/>
          }/>
 
-        <Route
-         path='/Category'
-         element={
-          <Category/>
-         }/> */}
+       
           <Route path='/ContactUs'element={<ContactUs/>}/>
 
 
