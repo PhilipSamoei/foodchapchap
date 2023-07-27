@@ -1,18 +1,15 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom';
-import ContactUs from './ContactUs'
+import { Link } from "react-router-dom"
+import './NavBar.css';
+// import ContactUs from '/components/ContactUs'
 function NavBar(){
     return(
-        <div className='nav'>
-                  < NavBar/>
-      <Routes>
-
-          <Route exact path='/contact' element={
-            <ContactUs/>
-          }/>
-
-      </Routes>
-
+        <div  className='nav'>
+              <Link to="/"> Home </Link><br/>
+              <Link to="/Restaurant"> Restaurants </Link><br/>
+              <Link to="/Category"> Category </Link><br/>
+              <Link to="/ContactUs"> Contact Us</Link>
+    
         </div>
     )
 }
