@@ -1,40 +1,73 @@
-import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LogIn from './components/Login';
-import SignUp from './components/SignUp';
+import './App.css';
+import Home from './components/Home';
+import NavBar from './components/NavBar';
+import ContactUs from './components/ContactUs';
+import HomePage from './pages/HomePage';
+// import Restaurant from '/components/Restaurant';
+// import Category from '/components/Category';
+
+
 
 function App() {
   const [currentUser, setCurrentUser] = useState([]);
   const [userActive, setUserActive] = useState(false);
 
   return (
-    <>
-    <BrowserRouter>
+    <div className="App">
 
-    <Routes>
-      <Route
-        path="/login"
-        element={
-          <LogIn
-            onLogin={setCurrentUser}
-            setUserActive={setUserActive}
-          />
-        }
-      ></Route>
-
-      <Route
-        path='/signup'
-        element={
-          <SignUp/>
-        }
-      ></Route>
-
+      <div className='landing-page'>
+         <h1>food ChapChap</h1>
+      </div>
+     
+      <BrowserRouter>
+     
       
 
-    </Routes>
-    </BrowserRouter>
-    </>
-  );
+
+      <NavBar/>
+      <Home/>
+      <HomePage/>
+
+      <Routes>
+
+         <Route 
+         path='/' 
+         element={
+          <Home/>
+         }/>
+          {/* <Route 
+         path='/Restaurant' 
+
+         <Route
+         path='/' element={<Home/>}/>
+          {/* <Route
+         path='/Restaurant'
+
+         element={
+          <Restaurant/>
+         }/>
+
+        <Route 
+         path='/Category' 
+         element={
+          <Category/>
+         }/> */}
+          <Route 
+         path='/ContactUs' 
+         element={
+          <ContactUs/>
+         }/>
+
+       
+          <Route path='/ContactUs'element={<ContactUs/>}/>
+
+
+      </Routes>
+
+      </BrowserRouter>
+    </div>
+    );
 }
 
 export default App;
