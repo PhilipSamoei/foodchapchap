@@ -1,11 +1,12 @@
 import React from "react";
-import NavBar from './NavBar'
-
+import './Home.css';
 
 function Home (){
     return (
         <div className="container">
-             < NavBar/>
+            <div className="landing-page">
+              {/* <h2>food ChapChap</h2> */}
+            </div>
         </div>
     )
 }
