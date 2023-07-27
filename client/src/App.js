@@ -12,16 +12,21 @@ import ContactUs from './components/ContactUs';
 function App() {
   return (
     <div className="App">
+
       <div className='landing-page'>
          <h1>food ChapChap</h1>
       </div>
      
       <BrowserRouter>
-      
+     
+      <BrowserRouter>
+
+
       <NavBar/>
       <Home/>
 
       <Routes>
+
          <Route 
          path='/' 
          element={
@@ -29,6 +34,12 @@ function App() {
          }/>
           {/* <Route 
          path='/Restaurant' 
+
+         <Route
+         path='/' element={<Home/>}/>
+          {/* <Route
+         path='/Restaurant'
+
          element={
           <Restaurant/>
          }/>
@@ -44,11 +55,19 @@ function App() {
           <ContactUs/>
          }/>
 
+        <Route
+         path='/Category'
+         element={
+          <Category/>
+         }/> */}
+          <Route path='/ContactUs'element={<ContactUs/>}/>
+
+
       </Routes>
 
       </BrowserRouter>
     </div>
-  );
+    );
 }
 
 export default App;
