@@ -1,0 +1,40 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .card_dishes {
+    width: 100px;
+    height: 150px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .card-details {
+    text-align: center;
+  }
+  
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .card-restaurant,
+  .card-price,
+  .card-category{
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
