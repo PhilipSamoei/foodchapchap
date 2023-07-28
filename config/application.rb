@@ -34,6 +34,10 @@ module Foodchapchap
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
+
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore, key: '_food_chap_chap_session', httponly: true, expire_after: 24.hours
+
     config.api_only = true
   end
 end

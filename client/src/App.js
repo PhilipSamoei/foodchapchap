@@ -10,6 +10,9 @@ import HomePage from './pages/HomePage';
 
 
 function App() {
+  const [currentUser, setCurrentUser] = useState([]);
+  const [userActive, setUserActive] = useState(false);
+
   return (
     <div className="App">
 
