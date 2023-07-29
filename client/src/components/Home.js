@@ -5,7 +5,9 @@ import NavBar from './NavBar'
 function Home (){
     return (
         <div className="container">
-             < NavBar/>
+          <div className="landing-page">
+            <h1>food ChapChap</h1>
+          </div>
         </div>
     )
 }
