@@ -10,7 +10,7 @@
 }
 
 .images {
-    top: 40px;
+    top: 20px;
     float: left; 
     margin-right: 20px; 
     border-radius: 10px;
@@ -21,7 +21,7 @@
 
 .flex {
     display: flex;
-    margin-top: 10%;
+    margin-top: 3%;
 }
 .span{
     color: brown;

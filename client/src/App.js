@@ -7,6 +7,9 @@ import HomePage from './pages/HomePage';
 import { useState } from 'react';
 import SignUp from './components/SignUp';
 import LogIn from './components/Login';
+import Foodcard from './pages/Foodcard';
+import RestaurantCard from './components/Restaurant';
+
 // import Restaurant from '/components/Restaurant';
 // import Category from '/components/Category';
 
@@ -20,24 +23,39 @@ function App() {
     <div className="App">
 
       <div className='landing-page'>
-         <h1>food ChapChap</h1>
+         <h1 >food <span 
+         style={{
+          color:'#FFCB74',
+          
+         }}> ChapChap</span> </h1>
       </div>
      
       <BrowserRouter>
      
       
 
-
+     
       <NavBar/>
       <Home/>
       <HomePage/>
-
+     
       <Routes>
 
          <Route 
          path='/' 
          element={
           <Home/>
+         }/>
+         <Route 
+         path='/Restaurants' 
+         element={
+         <RestaurantCard />
+         }/>
+
+         <Route 
+         path='/dishes' 
+         element={
+          <Foodcard />
          }/>
 
         <Route 
@@ -78,7 +96,7 @@ function App() {
          }/>
 
        
-          <Route path='/ContactUs'element={<ContactUs/>}/>
+          
 
 
       </Routes>
