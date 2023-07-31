@@ -9,7 +9,7 @@ function RestaurantCard() {
   },[]);
 
 const fetchrestaurant = () =>{
-  return fetch("http://127.0.0.1:3000/restaurants")
+  return fetch("/restaurants")
   .then (res => res.json())
   .then((data) => setrestaurant(data));
 }
