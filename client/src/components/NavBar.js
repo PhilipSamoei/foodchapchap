@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-import './NavBar.css';
+import '../css/NavBar.css';
+// import ContactUs from '/components/ContactUs'
 
 function NavBar(){
     return(
