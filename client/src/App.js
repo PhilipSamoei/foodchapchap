@@ -1,13 +1,14 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './components/Home';
 import NavBar from './components/NavBar';
 import ContactUs from './components/ContactUs';
 import HomePage from './pages/HomePage';
 import { useState } from 'react';
 import SignUp from './components/SignUp';
 import LogIn from './components/Login';
-// import Restaurant from '/components/Restaurant';
+import Foodcard from './pages/Foodcard';
+import RestaurantCard from './components/Restaurant';
+import Restaurant from '../src/components/Restaurant';
 // import Category from '/components/Category';
 
 
@@ -20,25 +21,35 @@ function App() {
     <div className="App">
 
       <div className='landing-page'>
-         <h1>food ChapChap</h1>
+         <h1 >food <span 
+         style={{
+          color:'#FFCB74',
+         }}> ChapChap</span> </h1>
       </div>
      
       <BrowserRouter>
-     
-      
-
-
       <NavBar/>
-      <Home/>
+      {/* <Home/> */}
       <HomePage/>
-
+     
       <Routes>
 
          <Route 
          path='/' 
          element={
-          <Home/>
+          <HomePage/>
          }/>
+         <Route 
+         path='/Restaurants' 
+         element={
+         <RestaurantCard />
+         }/>
+
+         <Route 
+         path='/dishes' 
+         element={
+          <Foodcard />
+         }/> 
 
         <Route 
          path='/signup' 
@@ -54,33 +65,24 @@ function App() {
           onLogin={setCurrentUser}
           />
          }/>
-          {/* <Route 
-         path='/Restaurant' 
-
-         <Route
-         path='/' element={<Home/>}/>
-          {/* <Route
+  
+           <Route
          path='/Restaurant'
 
          element={
           <Restaurant/>
          }/>
-
-        <Route 
+       
+        {/* <Route 
          path='/Category' 
          element={
           <Category/>
-         }/> */}
+         }/>  */}
           <Route 
          path='/ContactUs' 
          element={
           <ContactUs/>
          }/>
-
-       
-          <Route path='/ContactUs'element={<ContactUs/>}/>
-
-
       </Routes>
 
       </BrowserRouter>

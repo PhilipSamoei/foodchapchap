@@ -1,23 +1,11 @@
-/* 
-.App{
-    max-width: 600px;
-    margin: 0 auto;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-}
-.landing-page{
+h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 35px;
+    margin-left: 20px;
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 20px;
-
 }
 .landing-page{
-    margin-bottom: 20px;
+   text-align: center;
 }
-
-body{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,18,9,0.7651435574229692) 35%, rgba(0,212,255,1) 100%);
-}
-
- */ 
-
