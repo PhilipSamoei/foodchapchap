@@ -16,9 +16,20 @@ class AuthenticationController < ApplicationController
         expires: 24.hours.from_now
       }
 
-      render json: { username: @user.username }, status: :ok
+      render json: { username: @user.username, user_id: @user.id }, status: :ok
     else
       render json: { error: 'unauthorized' }, status: :unauthorized
+    end
+
+    def logout
+      # Invalidate the JWT token by adding it to the blacklist
+      jwt_token = cookies.signed[:jwt]
+      Blacklist.create(jwt_token: jwt_token)
+  
+      # Clear the HTTP-only cookie
+      cookies.delete(:jwt)
+  
+      render json: { message: "Logged out successfully" }, status: :ok
     end
   end
 
