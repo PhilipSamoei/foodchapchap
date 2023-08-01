@@ -20,17 +20,17 @@ class AuthenticationController < ApplicationController
     else
       render json: { error: 'unauthorized' }, status: :unauthorized
     end
+  end
 
-    def logout
-      # Invalidate the JWT token by adding it to the blacklist
-      jwt_token = cookies.signed[:jwt]
-      Blacklist.create(jwt_token: jwt_token)
-  
-      # Clear the HTTP-only cookie
-      cookies.delete(:jwt)
-  
-      render json: { message: "Logged out successfully" }, status: :ok
-    end
+  def logout
+    # Invalidate the JWT token by adding it to the blacklist
+    jwt_token = cookies.signed[:jwt]
+    Blacklist.create(jwt_token: jwt_token)
+
+    # Clear the HTTP-only cookie
+    cookies.delete(:jwt)
+
+    render json: { message: "Logged out successfully" }, status: :ok
   end
 
   private

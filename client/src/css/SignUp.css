@@ -21,7 +21,7 @@
     font-style: italic;
     font-family: monospace;
     font-weight: bold;
-    color: rgb(56, 55, 55);
+    color: #f39344;
 }
 
 .signup-container form input{
@@ -40,7 +40,7 @@
 .signup-container form button{
     height: 50px;
     width: 410px;
-    background-color: #8c8b8b;
+    background-color: #ff7300;
     border: none;
     outline: none;
     color: white;

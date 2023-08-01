@@ -24,27 +24,26 @@ function NavBar({userActive}){
 
     return(
         <nav  className='nav'>
-
-                <div className='chap'><h1>food ChapChap</h1></div>
-                <div className='link'>
+            {/* <div className='chap'><h4>food<span>ChapChap</span></h4></div> */}
+            <div className='link'>
                 <li><Link to="/" smooth={true}> Home </Link></li>
                 <li><Link to="/Restaurants" smooth={true}> Restaurants </Link></li>
                 <li><Link to="/Category" smooth={true}> Category </Link></li>
                 <li><Link to="/ContactUs" smooth={true}> Contact Us</Link></li>
-                <li><Link className='menu' to="/dishes" smooth={true}> explore</Link></li>
+                <li><Link className='menu' to="/dishes" smooth={true}> Explore</Link></li>
             </div>
 
 
             {!userActive?
-            <>
-            <button
-                className='logout-login'
-            ><a href='/signup'>Sign up</a></button>
-  
-            <button
-                className='logout-login'
-            ><a href='/login'>Log in</a></button>
-            </>
+            <div className='btn-container'>
+                <button
+                    className='logout-login'
+                ><a href='/signup'>Sign up</a></button>
+    
+                <button
+                    className='logout-login'
+                ><a href='/login'>Log in</a></button>
+            </div>
             :
             <button
                 className='logout-login'

@@ -8,33 +8,33 @@ function LogIn( {setUserActive, onLogin }){
     const navigate = useNavigate();
 
     function handleLogin(e){
-        e.preventDefault()
+      e.preventDefault()
 
-        const authorizeUser = {
-            email: email,
-            password: password,
-        }
+      const authorizeUser = {
+          email: email,
+          password: password,
+      }
 
-        fetch('http://localhost:3000/auth/login',{
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(authorizeUser),
+      fetch('http://localhost:3000/auth/login',{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(authorizeUser),
+        })
+          .then(res => {
+              if (res.ok){
+                  res.json().then((res) => {
+                      setUserActive(true);
+                      onLogin(res);
+                      console.log(res);
+                  })
+                  navigate('/home');
+              } else {
+                  res.json().then(res => console.log(`failed ${res}`))
+              }
           })
-            .then(res => {
-                if (res.ok){
-                    res.json().then((res) => {
-                        setUserActive(true);
-                        onLogin(res);
-                        console.log(res);
-                    })
-                    navigate('/home');
-                } else {
-                    res.json().then(res => console.log(`failed ${res}`))
-                }
-            })
-            .catch(err => console.log(err))
+          .catch(err => console.log(err))
     }
 
     return (
