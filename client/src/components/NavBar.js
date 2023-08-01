@@ -17,7 +17,7 @@ function NavBar({userActive}){
             navigate('/login');
             });
         } else {
-            res.json().then((res) => console.log(`failed ${res.error.full_message}`));
+            res.json().then((res) => console.log(`failed ${res.error}`));
         }
         });
     }
@@ -37,12 +37,10 @@ function NavBar({userActive}){
             <>
             <button 
                 className='logout-login'
-                onClick={navigate('/signup')}
-            >Sign up</button>
+            ><a href='/signup'>Sign up</a></button>
             <button 
                 className='logout-login'
-                onClick={navigate('/login')}
-            >Log in</button>
+            ><a href='/login'>Log in</a></button>
             </>
             :
             <button 

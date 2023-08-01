@@ -52,7 +52,12 @@ li{
     width: 100px;
 }
 
+.nav button a{
+    color:#fff;
+}
+
 .logout-login{
+    text-align: center;
     cursor: pointer;
     border: none;
     outline: none;
@@ -65,6 +70,7 @@ li{
 }
 
 .logout-login:hover{
+    text-align: center;
     cursor: pointer;
     border: none;
     outline: none;
