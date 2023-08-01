@@ -1,4 +1,6 @@
 class BeveragesController < ApplicationController
+    before_action :authorize_request
+
     def index
         beverage = Beverage.all
         render json: beverage
