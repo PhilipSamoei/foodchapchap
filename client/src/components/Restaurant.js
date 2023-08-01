@@ -35,4 +35,4 @@ const fetchrestaurant = () =>{
   )
 }
 
-export default RestaurantCard
+export default RestaurantCard;
