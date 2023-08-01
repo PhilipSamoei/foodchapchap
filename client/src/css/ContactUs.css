@@ -43,7 +43,8 @@ textarea{
 }
 
 button{
-    width: 100%;
+    width: 25%;
+
     padding: 12px;
     background-color: #ff7300;
     color: #fff;

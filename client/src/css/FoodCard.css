@@ -13,6 +13,7 @@
   border-radius: 8px ;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  background-color: aliceblue;
 }
 /* .card {
   width: 200px;
@@ -52,4 +53,8 @@
 .card-price,.card-category{
   margin: 0;
   margin-bottom: 5px;
+}
+
+.card-price{
+  color: darkgreen;
 }

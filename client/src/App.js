@@ -20,17 +20,17 @@ function App() {
   return (
     <div className="App">
 
-      <div className='landing-page'>
+      {/* <div className='landing-page'>
          <h1 >food <span
          style={{
           color:'#FFCB74',
          }}> ChapChap</span> </h1>
-      </div>
+      </div> */}
 
       <BrowserRouter>
       <NavBar/>
       {/* <Home/> */}
-      <HomePage/>
+      {/* <HomePage/> */}
 
       <Routes>
 

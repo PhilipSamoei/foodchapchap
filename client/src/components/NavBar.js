@@ -6,6 +6,7 @@ import '../css/NavBar.css';
 function NavBar(){
     return(
         <nav  className='nav'>
+                <div className='chap'><h1>food ChapChap</h1></div>
                 <ol><Link to="/" smooth={true}> Home </Link></ol>
                 <ol><Link to="/Restaurants" smooth={true}> Restaurants </Link></ol>
                 <ol><Link to="/Category" smooth={true}> Category </Link></ol>
