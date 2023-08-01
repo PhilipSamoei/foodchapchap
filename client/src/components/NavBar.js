@@ -17,7 +17,7 @@ function NavBar({userActive}){
             navigate('/login');
             });
         } else {
-            res.json().then((res) => console.log(`failed ${res.error.full_message}`));
+            res.json().then((res) => console.log(`failed ${res.error}`));
         }
         });
     }
@@ -31,20 +31,19 @@ function NavBar({userActive}){
                 <li><Link to="/Restaurants" smooth={true}> Restaurants </Link></li>
                 <li><Link to="/Category" smooth={true}> Category </Link></li>
                 <li><Link to="/ContactUs" smooth={true}> Contact Us</Link></li>
-                <li><Link className='menu' to="/dishes" smooth={true}> Menu</Link></li>
+                <li><Link className='menu' to="/dishes" smooth={true}> explore</Link></li>
             </div>
 
 
-            {userActive?
+            {!userActive?
             <>
             <button
                 className='logout-login'
-                onClick={navigate('/signup')}
-            >Sign up</button>
+            ><a href='/signup'>Sign up</a></button>
+  
             <button
                 className='logout-login'
-                onClick={navigate('/login')}
-            >Log in</button>
+            ><a href='/login'>Log in</a></button>
             </>
             :
             <button
