@@ -33,7 +33,7 @@ function NavBar({userActive}){
             </div>
             
 
-            {userActive?
+            {!userActive?
             <>
             <button 
                 className='logout-login'
