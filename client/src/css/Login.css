@@ -1,0 +1,51 @@
+.login-containers{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.login-containers form{
+    min-height: 400px;
+    margin-top: 20px;
+    width: 500px;
+    box-shadow: 10px 10px 10px 1px rgb(58, 56, 56);
+    display: grid;
+    place-content: center;
+    text-align: center;
+    padding: 20px;
+    backface-visibility: hidden;
+    border-radius: 15px;
+  }
+
+.login-containers form h2{
+    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: rgb(56, 55, 55);
+}
+
+.login-containers form input{
+    height: 50px;
+    width: 400px;
+    background-color: #e2e0e0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+    color: rgb(89, 89, 89);
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.login-containers form button{
+    height: 50px;
+    width: 410px;
+    background-color: #8c8b8b;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+}

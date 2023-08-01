@@ -1,0 +1,37 @@
+/* Homepage.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+.slogan {
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30vh;
+    margin-left: 30px;
+}
+
+.images {
+    top: 20px;
+    float: left; 
+    margin-right: 20px; 
+    border-radius: 10px;
+    width: 1200px; 
+    height: 90vh;
+
+}
+
+.flex {
+    display: flex;
+    margin-top: 3%;
+}
+.span{
+    color: brown;
+    font-size: 30px;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/pexels-ella-olsson-1640773.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
