@@ -1,5 +1,4 @@
-
-import React,{ useState, useEffect} from 'react'
+import React,{ useState, useEffect} from 'react';
 import '../css/Restaurant.css';
 
 function RestaurantCard() {
@@ -10,7 +9,7 @@ function RestaurantCard() {
   },[]);
 
 const fetchrestaurant = () =>{
-  return fetch("/restaurants")
+   fetch("http://127.0.0.1:3000/restaurants")
   .then (res => res.json())
   .then((data) => setrestaurant(data));
 }
