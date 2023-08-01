@@ -1,17 +1,17 @@
 class DishesController < ApplicationController
     def index
         dish = Dish.all
-        render json: dish
+        render json: dish, include: :restaurant
     end
 
     def create
         dish = Dish.create!(dish_params)
         render json: dish, status: :created
         end
-    
-        def show 
+
+        def show
             dish = find_dish
-            render json:dish
+            render json:dish, include: :restaurant
         end
 
         def update
@@ -23,7 +23,7 @@ class DishesController < ApplicationController
               render json: { error: "dish not found" }, status: :not_found
             end
         end
-    
+
 
         def destroy
             dish = find_dish
@@ -39,7 +39,7 @@ class DishesController < ApplicationController
 
         def dish_params
             params.permit(:name, :image, :category, :price, :restaurant_id)
-        end 
+        end
 
         def dish_update_params
             params.permit(:price)
