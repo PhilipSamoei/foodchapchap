@@ -1,16 +1,16 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-import './NavBar.css';
+import '../css/NavBar.css';
+// import ContactUs from '/components/ContactUs'
 
 function NavBar(){
     return(
         <nav  className='nav'>
-              <Link to="/"> Home </Link><br/>
-              <Link to="/Restaurants"> Restaurants </Link><br/>
-              <Link to="/Category"> Category </Link><br/>
-              <Link to="/ContactUs"> Contact Us</Link><br/>
-              <Link to="/dishes"> Menu</Link>
-            
+                <ol><Link to="/" smooth={true}> Home </Link></ol>
+                <ol><Link to="/Restaurants" smooth={true}> Restaurants </Link></ol>
+                <ol><Link to="/Category" smooth={true}> Category </Link></ol>
+                <ol><Link to="/ContactUs" smooth={true}> Contact Us</Link></ol>
+                <ol><Link to="/dishes" smooth={true}> Menu</Link></ol>
         </nav>
     )
 }

@@ -15,22 +15,29 @@ const fetchDishes = () =>{
 }
 
   return (
-    <div>
-        <div className="card-container">
-    {dishes.map((dish) => (
-      <div className="card-dishes" key={dish.id}>
-        <img className="card-image" src={dish.image} alt={dish.name} />
-        <div className="card-details">
-          <h2 className="card-title">{dish.name}</h2>
-          <p className="card-category">Category: {dish.category}</p>
-          <p className="card-price">Price: ${dish.price}</p>
-          {/* <p className="card-restaurant" key={restaurant.id} >restaurant: {dish.restaurant.name}</p> */}
+  <div>
+    <div className='card-container'>
+      {dishes.map((dish) => (
+        <div className='card' key={dish.id}>
+           {/* <div className='card-front'>
+             <img className='card-image' src={dish.image} alt={dish.name}/>
+             <div className='card-details'>
+               <h2 className='card-title'>{dish.name}</h2>
+             </div>
+           </div> */}
+           <div className='card-back'>
+             <div className='card-details'>
+               <img className='card-image' src={dish.image} alt={dish.name}/>
+               <h2 className='card-title'>{dish.name}</h2>
+               <p className='card-category'> Category: {dish.category}</p>
+               <p className='card-price'> Price: ${dish.price}</p>
+             </div>
+           </div>
         </div>
-      </div>
-    ))}
-  </div>
+      ))}
     </div>
-  )
+  </div>
+  );
 }
 
 export default Foodcard

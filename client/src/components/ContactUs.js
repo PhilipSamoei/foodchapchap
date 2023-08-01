@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import './ContactUs.css';
+import '../css/ContactUs.css';
 function ContactUs () {
     const [formData, setFormData] = useState({
         userName : "",
@@ -22,7 +22,7 @@ function ContactUs () {
         setFormData({...formData, [event.target.name]:event.target.value})
     }
     return (
-        <div className="container">
+        <div className="container" id="contact">
             <div className="contact">
                 <h3>Feel free to reach to us or share your views about food ChapChap </h3>
             </div>

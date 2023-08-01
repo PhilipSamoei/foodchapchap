@@ -27,4 +27,11 @@
     color: brown;
     font-size: 30px;
 }
-
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/pexels-ella-olsson-1640773.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

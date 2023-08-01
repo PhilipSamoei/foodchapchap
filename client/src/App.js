@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './components/Home';
 import NavBar from './components/NavBar';
 import ContactUs from './components/ContactUs';
 import HomePage from './pages/HomePage';
@@ -9,8 +8,7 @@ import SignUp from './components/SignUp';
 import LogIn from './components/Login';
 import Foodcard from './pages/Foodcard';
 import RestaurantCard from './components/Restaurant';
-
-// import Restaurant from '/components/Restaurant';
+import Restaurant from '../src/components/Restaurant';
 // import Category from '/components/Category';
 
 
@@ -26,17 +24,12 @@ function App() {
          <h1 >food <span 
          style={{
           color:'#FFCB74',
-          
          }}> ChapChap</span> </h1>
       </div>
      
       <BrowserRouter>
-     
-      
-
-     
       <NavBar/>
-      <Home/>
+      {/* <Home/> */}
       <HomePage/>
      
       <Routes>
@@ -44,7 +37,7 @@ function App() {
          <Route 
          path='/' 
          element={
-          <Home/>
+          <HomePage/>
          }/>
          <Route 
          path='/Restaurants' 
@@ -56,7 +49,7 @@ function App() {
          path='/dishes' 
          element={
           <Foodcard />
-         }/>
+         }/> 
 
         <Route 
          path='/signup' 
@@ -72,33 +65,24 @@ function App() {
           onLogin={setCurrentUser}
           />
          }/>
-          {/* <Route 
-         path='/Restaurant' 
-
-         <Route
-         path='/' element={<Home/>}/>
-          {/* <Route
+  
+           <Route
          path='/Restaurant'
 
          element={
           <Restaurant/>
          }/>
-
-        <Route 
+       
+        {/* <Route 
          path='/Category' 
          element={
           <Category/>
-         }/> */}
+         }/>  */}
           <Route 
          path='/ContactUs' 
          element={
           <ContactUs/>
          }/>
-
-       
-          
-
-
       </Routes>
 
       </BrowserRouter>
