@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+    before_action :authorize_request
+    
     def index
         order = Order.all
         render json: order

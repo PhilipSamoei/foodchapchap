@@ -1,4 +1,6 @@
 class DishesController < ApplicationController
+    before_action :authorize_request
+    
     def index
         dish = Dish.all
         render json: dish, include: :restaurant
