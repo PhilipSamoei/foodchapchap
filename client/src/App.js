@@ -28,8 +28,8 @@ function App() {
       </div>
 
       <BrowserRouter>
-      <NavBar/>
-      {/* <Home/> */}
+      <NavBar userActive={userActive} />
+
       <HomePage/>
 
       <Routes>

@@ -1,16 +1,55 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 import '../css/NavBar.css';
+import { useNavigate } from 'react-router-dom';
 // import ContactUs from '/components/ContactUs'
 
-function NavBar(){
+function NavBar({userActive}){
+    const navigate = useNavigate()
+
+    function handleLogout() {
+        fetch('http://localhost:3000/auth/logout', {
+          method: 'DELETE', 
+        })
+        .then((res) => {
+        if (res.ok) {
+            res.json().then((res) => {
+            navigate('/login');
+            });
+        } else {
+            res.json().then((res) => console.log(`failed ${res.error.full_message}`));
+        }
+        });
+    }
+
     return(
         <nav  className='nav'>
-                <ol><Link to="/" smooth={true}> Home </Link></ol>
-                <ol><Link to="/Restaurants" smooth={true}> Restaurants </Link></ol>
-                <ol><Link to="/Category" smooth={true}> Category </Link></ol>
-                <ol><Link to="/ContactUs" smooth={true}> Contact Us</Link></ol>
-                <ol><Link to="/dishes" smooth={true}> Menu</Link></ol>
+            <div className='link'>
+                <li><Link to="/" smooth={true}> Home </Link></li>
+                <li><Link to="/Restaurants" smooth={true}> Restaurants </Link></li>
+                <li><Link to="/Category" smooth={true}> Category </Link></li>
+                <li><Link to="/ContactUs" smooth={true}> Contact Us</Link></li>
+                <li><Link className='menu' to="/dishes" smooth={true}> Menu</Link></li>
+            </div>
+            
+
+            {userActive?
+            <>
+            <button 
+                className='logout-login'
+                onClick={navigate('/signup')}
+            >Sign up</button>
+            <button 
+                className='logout-login'
+                onClick={navigate('/login')}
+            >Log in</button>
+            </>
+            :
+            <button 
+                className='logout-login'
+                onClick={handleLogout}
+            >Log out</button>
+            }
         </nav>
     )
 }
