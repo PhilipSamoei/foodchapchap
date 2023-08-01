@@ -18,22 +18,17 @@ const fetchDishes = () =>{
   <div>
     <div className='card-container'>
       {dishes.map((dish) => (
-        <div className='card' key={dish.id}>
-           {/* <div className='card-front'>
-             <img className='card-image' src={dish.image} alt={dish.name}/>
-             <div className='card-details'>
-               <h2 className='card-title'>{dish.name}</h2>
-             </div>
-           </div> */}
+
+
            <div className='card-back'>
+            <img className='card-image' src={dish.image} alt={dish.name}/>
              <div className='card-details'>
-               <img className='card-image' src={dish.image} alt={dish.name}/>
                <h2 className='card-title'>{dish.name}</h2>
                <p className='card-category'> Category: {dish.category}</p>
                <p className='card-price'> Price: ${dish.price}</p>
              </div>
            </div>
-        </div>
+
       ))}
     </div>
   </div>
