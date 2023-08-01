@@ -21,57 +21,56 @@ function App() {
     <div className="App">
 
       <div className='landing-page'>
-         <h1 >food <span 
+         <h1 >food <span
          style={{
           color:'#FFCB74',
          }}> ChapChap</span> </h1>
       </div>
-     
       <BrowserRouter>
       <NavBar/>
       {/* <Home/> */}
       <HomePage/>
-     
+
       <Routes>
 
-         <Route 
-         path='/' 
+         <Route
+         path='/'
          element={
           <HomePage/>
          }/>
-         <Route 
-         path='/Restaurants' 
+         <Route
+         path='/Restaurants'
          element={
          <RestaurantCard />
          }/>
 
-         <Route 
-         path='/dishes' 
+         <Route
+         path='/dishes'
          element={
           <Foodcard />
          }/> 
 
-        <Route 
-         path='/signup' 
+        <Route
+         path='/signup'
          element={
           <SignUp/>
          }/>
 
-        <Route 
-         path='/login' 
+        <Route
+         path='/login'
          element={
           <LogIn
           setUserActive={setUserActive}
           onLogin={setCurrentUser}
           />
-         }/>
-  
+         }/>95696723b37da1b1242dab056d2b2df5e9c3b9
            <Route
          path='/Restaurant'
 
          element={
           <Restaurant/>
          }/>
+
        
         {/* <Route 
          path='/Category' 
@@ -80,6 +79,9 @@ function App() {
          }/>  */}
           <Route 
          path='/ContactUs' 
+
+
+
          element={
           <ContactUs/>
          }/>
