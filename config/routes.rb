@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:index, :show, :create, :destroy]
   # Defines the root path route ("/")
   post '/auth/login', to: 'authentication#login'
+  delete '/auth/logout', to: 'authentication#logout'
+
   get '/*a', to: 'application#not_found'
   # root "articles#index"
 end

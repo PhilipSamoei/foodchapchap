@@ -6,6 +6,7 @@
    right: 10px;
    text-align: right;
    display: flex;
+   z-index: 10000;
    
 }
 .nav a{
@@ -23,17 +24,54 @@ nav {
     margin-bottom: 0px;
     display: flex;
     gap: 2.5rem;
+    margin-top: 15px;
 }
 
-ol{
+li{
+    list-style-type: none;
     display: block;
     transition: .5s;
+    padding: 0.2%;
+    width: 150px;
 }
 
-nav:hover ol{
+.link{
+    display: flex;
+    flex-direction: row;
+}
+
+.link:hover li{
     filter: blur(5px)
 }
 
-nav ol:hover{
+.link li:hover{
     filter: blur(0px);
+}
+
+.menu{
+    width: 100px;
+}
+
+.logout-login{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    background-color:#ff7300;
+    color:#fff;
+    margin-top: 0px;
+}
+
+.logout-login:hover{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    background-color:#ff7300;
+    color: #fff;
+    /* margin-top: 15px; */
 }
