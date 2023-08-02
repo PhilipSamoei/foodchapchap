@@ -29,7 +29,7 @@ function App() {
 
       <BrowserRouter>
 
-      <NavBar userActive={userActive} />
+      <NavBar userActive={userActive} setUserActive={setUserActive}/>
 
       <Routes>
 
