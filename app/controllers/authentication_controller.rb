@@ -1,7 +1,7 @@
 require_relative '../../lib/tasks/json_web_token.rb'
 
 class AuthenticationController < ApplicationController
-  before_action :authorize_request, except: :login
+  before_action :authorize_request, except: [:login, :logout]
 
   # POST /auth/login
   def login
@@ -23,12 +23,8 @@ class AuthenticationController < ApplicationController
   end
 
   def logout
-    # Invalidate the JWT token by adding it to the blacklist
-    jwt_token = cookies.signed[:jwt]
-    Blacklist.create(jwt_token: jwt_token)
-
     # Clear the HTTP-only cookie
-    cookies.delete(:jwt)
+    cookies.delete(:jwt_token)
 
     render json: { message: "Logged out successfully" }, status: :ok
   end

@@ -4,17 +4,18 @@ import '../css/NavBar.css';
 import { useNavigate } from 'react-router-dom';
 // import ContactUs from '/components/ContactUs'
 
-function NavBar({userActive}){
+function NavBar({userActive, setUserActive}){
     const navigate = useNavigate()
 
     function handleLogout() {
         fetch('http://localhost:3000/auth/logout', {
-          method: 'DELETE',
+          method: 'DELETE'
         })
         .then((res) => {
         if (res.ok) {
-            res.json().then((res) => {
-            navigate('/login');
+            res.json().then(() => {
+                setUserActive=false
+                navigate('/login');
             });
         } else {
             res.json().then((res) => console.log(`failed ${res.error}`));
