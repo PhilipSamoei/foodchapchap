@@ -24,8 +24,8 @@ const fetchDishes = () =>{
            <div className='card-back'>
             <img className='card-image' src={dish.image} alt={dish.name}/>
              <div className='card-details'>
-               <h2 className='card-title'>{dish.name}</h2>
-               <p className='card-category'> Category: {dish.category}</p>
+               <h2 className='card-title'>{dish.restaurant.name.charAt(0).toUpperCase() + dish.restaurant.name.slice(1).toLowerCase()} - {dish.name.charAt(0).toUpperCase() + dish.name.slice(1).toLowerCase()}</h2>
+               <p className='card-category'> Category: {dish.category.charAt(0).toUpperCase() + dish.category.slice(1).toLowerCase()}</p>
                <p className='card-price'> Price: ${dish.price}</p>
              </div>
            </div>
