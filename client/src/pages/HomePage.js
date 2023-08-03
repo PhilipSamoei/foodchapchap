@@ -15,9 +15,13 @@ function HomePage() {
         <li style={{listStyle:'none'}}>Pre order your food</li>
         </span>
       </p>
-      
- 
     </div>
+
+    <div className='fav-container'>
+        
+    </div>
+
+
     <FoodGuide />
     </div>
   )

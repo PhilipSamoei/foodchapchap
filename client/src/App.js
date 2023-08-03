@@ -13,6 +13,7 @@ import BeverageCard from './pages/Beverage';
 
 
 
+
 function App() {
   const [currentUser, setCurrentUser] = useState([]);
   const [userActive, setUserActive] = useState(false);
