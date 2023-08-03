@@ -55,7 +55,7 @@ function SignUp (){
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <button type="submit">Sign up</button>
+        <button  onclick={handleSignup} type="submit">Sign up</button>
         <p>
         Already have an account? <Link to="/login">Log in</Link>
         </p>

@@ -1,4 +1,4 @@
-import React,{ useState, useEffect} from 'react'
+import React,{ useState, useEffect} from 'react';
 import '../css/FoodCard.css';
 
 function Foodcard() {
@@ -26,7 +26,7 @@ const fetchDishes = () =>{
              <div className='card-details'>
                <h2 className='card-title'>{dish.restaurant.name.charAt(0).toUpperCase() + dish.restaurant.name.slice(1).toLowerCase()} - {dish.name.charAt(0).toUpperCase() + dish.name.slice(1).toLowerCase()}</h2>
                <p className='card-category'> Category: {dish.category.charAt(0).toUpperCase() + dish.category.slice(1).toLowerCase()}</p>
-               <p className='card-price'> Price: ${dish.price}</p>
+               <p className='card-price'> Price: {dish.price}</p>
              </div>
            </div>
       ))}

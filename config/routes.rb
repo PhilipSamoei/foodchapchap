@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :admins
   resources :beverages, only: [:index, :show, :create, :update,:destroy]
   resources :dishes, only: [:index, :show, :create, :update,:destroy]
-  resources :restaurants, only: [:index, :show, :create, :destroy]
+  resources :restaurants, only: [:index, :show, :create, :destroy,  :update]
   # Defines the root path route ("/")
   post '/auth/login', to: 'authentication#login'
   delete '/auth/logout', to: 'authentication#logout'

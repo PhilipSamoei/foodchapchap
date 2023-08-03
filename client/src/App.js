@@ -9,7 +9,7 @@ import LogIn from './components/Login';
 import Foodcard from './pages/Foodcard';
 import RestaurantCard from './components/Restaurant';
 import Restaurant from '../src/components/Restaurant';
-// import Category from '/components/Category';
+import BeverageCard from './pages/Beverage';
 
 
 
@@ -72,18 +72,16 @@ function App() {
          }/>
 
        
-        {/* <Route 
-         path='/Category' 
+        <Route 
+         path='/Beverages' 
          element={
-          <Category/>
-         }/>  */}
+          <BeverageCard />
+         }/> 
+
           <Route 
          path='/ContactUs' 
-
-
-
          element={
-          <ContactUs/>
+          <ContactUs />
          }/>
       </Routes>
 
