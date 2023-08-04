@@ -9,7 +9,7 @@ import LogIn from './components/Login';
 import Foodcard from './pages/Foodcard';
 import RestaurantCard from './components/Restaurant';
 import Restaurant from '../src/components/Restaurant';
-// import Category from '/components/Category';
+import BeverageCard from './pages/Beverage';
 
 
 
@@ -48,7 +48,7 @@ function App() {
          path='/dishes'
          element={
           <Foodcard />
-         }/>
+         }/> 
 
         <Route
          path='/signup'
@@ -63,8 +63,7 @@ function App() {
           setUserActive={setUserActive}
           onLogin={setCurrentUser}
           />
-         }/>
-
+         }/>95696723b37da1b1242dab056d2b2df5e9c3b9
            <Route
          path='/Restaurant'
 
@@ -72,15 +71,17 @@ function App() {
           <Restaurant/>
          }/>
 
-        {/* <Route
-         path='/Category'
+       
+        <Route 
+         path='/Beverages' 
          element={
-          <Category/>
-         }/>  */}
-          <Route
-         path='/ContactUs'
+          <BeverageCard />
+         }/> 
+
+          <Route 
+         path='/ContactUs' 
          element={
-          <ContactUs/>
+          <ContactUs />
          }/>
       </Routes>
 

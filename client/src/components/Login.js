@@ -57,7 +57,7 @@ function LogIn( {setUserActive, onLogin }){
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit">Log in</button>
+            <button onClick={handleLogin} type="submit">Log in</button>
             <p>
             Don't have an account? <Link to="/signup">Sign up</Link>
             </p>
