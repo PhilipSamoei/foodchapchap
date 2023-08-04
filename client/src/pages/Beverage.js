@@ -5,9 +5,9 @@ function BeverageCard() {
   const [beverages, setBeverages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [q, setQ] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchParam] = useState(["name", "category"]);
-  const [filterParam, setFilterParam] = useState("ALL");
+  const [filterCategory, setFilterCategory] = useState("ALL");
 
   useEffect(() => {
     fetchBeverages();
@@ -21,28 +21,29 @@ function BeverageCard() {
       .then(res => res.json())
       .then(data => {
         setBeverages(data);
-        setLoading(false)
-    })
+        setLoading(false);
+      })
       .catch(error => {
-        setError("error");
+        setError(error);
         setLoading(false);
       });
   };
-  const filteredBeverages = beverages.filter(item => {
-    const isMatchingSearch = searchParam.some(newItem =>
-      item[newItem].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
+
+  const filteredBeverages = beverages.filter(beverage => {
+    const isMatchingSearch = searchParam.some(param =>
+      beverage[param].toString().toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    if (filterParam === "ALL") {
+    if (filterCategory === "ALL") {
       return isMatchingSearch;
     } else {
-      return item.category === parseInt(filterParam) && isMatchingSearch;
+      return beverage.category === filterCategory && isMatchingSearch;
     }
   });
 
   return (
     <div>
-        <div className="search-wrapper">
+      <div className="search-wrapper">
         <label htmlFor="search-form">
           <input
             type="search"
@@ -50,43 +51,47 @@ function BeverageCard() {
             id="search-form"
             className="search-input"
             placeholder="Search Beverage or category"
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
           />
         </label>
       </div>
       <div>
         <select
-          onChange={(e) => {
-            setFilterParam(e.target.value);
-          }}
+          onChange={e => setFilterCategory(e.target.value)}
           className="custom-select"
-          aria-label='filter drinks category '>
+          aria-label='filter drinks category '
+        >
           <option value="ALL">All Drinks</option>
-          <option value="juice"> Juice</option>
+          <option value="juice">Juice</option>
           <option value="soft drink">Soft drink</option>
-          <option value="milk shake">milk shake</option>
+          <option value="milk shake">Milk shake</option>
         </select>
         <span className='focus'></span>
       </div>
-    <div>
-      
-        <div className='card-container'>
-          {filteredBeverages.map(beverage => (
-            <div className='card-back' key={beverage.id}>
-              <img className='card-image' src={beverage.image} alt={beverage.name}/>
-              <div className='card-details'>
-                <h2 className='card-title'>
-                  {beverage.restaurant?.name?.charAt(0) + (beverage.restaurant?.name?.slice(1) || '')} - {beverage.name?.charAt(0)  + (beverage.name?.slice(1) || '')}
-                </h2>
-                <p className='card-category'>Category: {beverage.category + (beverage.category || '')}</p>
-                <p className='card-price'>Price: ${beverage.price || 0}</p>
+      <div>
+        {loading ? (
+          <p>Loading beverages...</p>
+        ) : error ? (
+          <p>Error fetching beverages: {error.message}</p>
+        ) : (
+          <div className='card-container'>
+            {filteredBeverages.map(beverage => (
+              <div className='card-back' key={beverage.id}>
+                <img className='card-image' src={beverage.image} alt={beverage.name}/>
+                <div className='card-details'>
+                  <h2 className='card-title'>
+                    {beverage.restaurant?.name?.charAt(0).toUpperCase() + (beverage.restaurant?.name?.slice(1).toLowerCase() || '')} - {beverage.name?.charAt(0).toUpperCase() + (beverage.name?.slice(1).toLowerCase() || '')}
+                  </h2>
+                  <p className='card-category'>Category: {beverage.category?.charAt(0).toUpperCase() + (beverage.category?.slice(1).toLowerCase() || '')}</p>
+                  <p className='card-price'>Price: KSH{beverage.price || 0}</p>
+                </div>
+                <button className='cart'>Add to cart</button>
               </div>
-            </div>
-          ))}
-        </div>
-      
-    </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
