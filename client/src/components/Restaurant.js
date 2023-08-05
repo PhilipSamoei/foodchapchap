@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BlogList from '../blog/BlogList';
 import '../css/Restaurant.css';
-
 function RestaurantCard() {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -9,15 +8,12 @@ function RestaurantCard() {
   const [q, setQ] = useState("");
   const [searchParam] = useState(["name", "address"]);
   const [filterParam, setFilterParam] = useState("ALL"); // Initialize with "ALL"
-
   useEffect(() => {
     fetchRestaurants();
   }, []);
-
   const fetchRestaurants = () => {
     setLoading(true);
     setError(null);
-
     fetch("http://127.0.0.1:3000/restaurants")
       .then(res => res.json())
       .then(data => {
@@ -29,7 +25,6 @@ function RestaurantCard() {
         setLoading(false);
       });
   };
-
   const handleRatingChange = async (restaurantId, newRating) => {
     try {
       const response = await fetch(`http://127.0.0.1:3000/restaurants/${restaurantId}`, {
@@ -39,7 +34,6 @@ function RestaurantCard() {
         },
         body: JSON.stringify({ ambience: newRating })
       });
-
       if (response.ok) {
         setRestaurants(prevRestaurants =>
           prevRestaurants.map(restaurant =>
@@ -54,19 +48,16 @@ function RestaurantCard() {
       setError('Failed to update rating');
     }
   };
-
   const filteredRestaurants = restaurants.filter(item => {
     const isMatchingSearch = searchParam.some(newItem =>
       item[newItem].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
     );
-
     if (filterParam === "ALL") {
       return isMatchingSearch;
     } else {
       return item.ambience === parseInt(filterParam) && isMatchingSearch;
     }
   });
-
   return (
     <div>
       <div className="search-wrapper">
@@ -128,15 +119,12 @@ function RestaurantCard() {
     </div>
   );
 }
-
 function RatingComponent({ restaurantId, currentRating, onRatingChange }) {
   const [rating, setRating] = useState(currentRating || 0);
-
   const handleStarClick = newRating => {
     setRating(newRating);
     onRatingChange(restaurantId, newRating);
   };
-
   return (
     <div className="stars">
       {[1, 2, 3, 4, 5].map(star => (
@@ -151,5 +139,16 @@ function RatingComponent({ restaurantId, currentRating, onRatingChange }) {
     </div>
   );
 }
-
 export default RestaurantCard;
+
+
+
+
+
+
+
+
+
+
+
+
