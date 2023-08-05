@@ -10,6 +10,7 @@ import Foodcard from './pages/Foodcard';
 import RestaurantCard from './components/Restaurant';
 import Restaurant from '../src/components/Restaurant';
 import BeverageCard from './pages/Beverage';
+import Footercomp from './components/Footer';
 
 
 
@@ -48,7 +49,7 @@ function App() {
          path='/dishes'
          element={
           <Foodcard />
-         }/> 
+         }/>
 
         <Route
          path='/signup'
@@ -71,21 +72,23 @@ function App() {
           <Restaurant/>
          }/>
 
-       
-        <Route 
-         path='/Beverages' 
+
+        <Route
+         path='/Beverages'
          element={
           <BeverageCard />
-         }/> 
+         }/>
 
-          <Route 
-         path='/ContactUs' 
+          <Route
+         path='/ContactUs'
          element={
           <ContactUs />
          }/>
       </Routes>
 
+
       </BrowserRouter>
+      <Footercomp />
     </div>
     );
 }
