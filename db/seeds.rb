@@ -115,3 +115,90 @@ Beverage.create([
   { name: 'milk shake', category: 'milk shake', restaurant_id: 1,image: 'https://img.freepik.com/free-photo/milkshake-set-table_140725-9239.jpg?size=626&ext=jpg&ga=GA1.1.606411282.1690526406&semt=ais' , price: '1100'},
   { name: 'milk shake', category: 'milk shake', restaurant_id: 2,image: 'https://img.freepik.com/free-photo/milkshake-set-table_140725-9239.jpg?size=626&ext=jpg&ga=GA1.1.606411282.1690526406&semt=ais' , price: '1100'}
 ])
+5.times do
+  User.create(
+    username: Faker::Internet.unique.username,
+    email: Faker::Internet.unique.email,
+    password: 'password'
+  )
+end
+puts "Users created"
+
+
+user_ids = (1..5).to_a
+
+# Create blogs using the sample data
+Blog.create([
+  {
+    title: "Getting Started with Blogging",
+    content: "In this post, we will explore the basics of starting a blog...",
+    user_id: user_ids.sample,
+    publication_date: DateTime.now,
+    updated_at: DateTime.now
+  },
+  {
+    title: "10 Tips for Writing Engaging Content",
+    content: "Writing engaging content is essential for keeping readers...",
+    user_id: user_ids.sample,
+    publication_date: DateTime.now - 1.day,
+    updated_at: DateTime.now - 1.day
+  },
+  {
+    title: "Getting Started with Blogging",
+    content: "In this post, we will explore the basics of starting a blog...",
+    user_id: user_ids.sample,
+    publication_date: DateTime.now,
+    updated_at: DateTime.now
+  },
+  {
+    title: "10 Tips for Writing Engaging Content",
+    content: "Writing engaging content is essential for keeping readers...",
+    user_id: user_ids.sample,
+    publication_date: DateTime.now - 1.day,
+    updated_at: DateTime.now - 1.day
+  },
+  {
+    title: "Getting Started with Blogging",
+    content: "In this post, we will explore the basics of starting a blog...",
+    user_id: user_ids.sample,
+    publication_date: DateTime.now,
+    updated_at: DateTime.now
+  },
+  {
+    title: "10 Tips for Writing Engaging Content",
+    content: "Writing engaging content is essential for keeping readers...",
+    user_id: user_ids.sample,
+    publication_date: DateTime.now - 1.day,
+    updated_at: DateTime.now - 1.day
+  },
+  {
+    title: "Getting Started with Blogging",
+    content: "In this post, we will explore the basics of starting a blog...",
+    user_id: user_ids.sample,
+    publication_date: DateTime.now,
+    updated_at: DateTime.now
+  },
+  {
+    title: "10 Tips for Writing Engaging Content",
+    content: "Writing engaging content is essential for keeping readers...",
+    user_id: user_ids.sample,
+    publication_date: DateTime.now - 1.day,
+    updated_at: DateTime.now - 1.day
+  },
+  {
+    title: "Getting Started with Blogging",
+    content: "In this post, we will explore the basics of starting a blog...",
+    user_id: user_ids.sample,
+    publication_date: DateTime.now,
+    updated_at: DateTime.now
+  },
+  {
+    title: "10 Tips for Writing Engaging Content",
+    content: "Writing engaging content is essential for keeping readers...",
+    user_id: user_ids.sample,
+    publication_date: DateTime.now - 1.day,
+    updated_at: DateTime.now - 1.day
+  }
+])
+
+puts 'Seed data created successfully!'

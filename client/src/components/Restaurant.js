@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import BlogList from '../blog/BlogList';
 import '../css/Restaurant.css';
 
 function RestaurantCard() {
@@ -123,6 +124,7 @@ function RestaurantCard() {
           </div>
         )}
       </div>
+      <BlogList />
     </div>
   );
 }
