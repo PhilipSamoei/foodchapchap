@@ -1,6 +1,7 @@
 import React from 'react'
 // import SimpleReactFooter from 'simple-react-footer';
 import "../css/Footer.css"
+import logo from "../assets/logo.png"
 
 
 function Footercomp() {
@@ -11,7 +12,7 @@ function Footercomp() {
 
 		<div class="footer-left">
 
-			<h3>Company<span>logo</span></h3>
+			<h3><img src={logo} alt="shop"/></h3>
 
 				<p class="footer-links">
 					<a href="#" class="link-1">Home</a>
@@ -26,8 +27,6 @@ function Footercomp() {
 
 					<a href="#">Contact</a>
 				</p>
-
-				<p class="footer-company-name">Company Name © 2015</p>
 			</div>
 
 			<div class="footer-center">
@@ -45,7 +44,9 @@ function Footercomp() {
 				<div>
 					<i class="fa fa-envelope"></i>
 					<p><a href="mailto:support@company.com">support@company.com</a></p>
+
 				</div>
+				
 
 			</div>
 
