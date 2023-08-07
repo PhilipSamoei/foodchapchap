@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
-    before_action :authorize_request
-    
+    # before_action :authorize_request
+
     def index
         restaurant = Restaurant.all
         render json: restaurant
@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
         render json: restaurant, status: :created
     end
 
-    def show 
+    def show
         restaurant = find_restaurant
         render json:restaurant
     end
@@ -37,5 +37,5 @@ class RestaurantsController < ApplicationController
 
     def restaurant_params
         params.permit(:name, :image, :address, :ambience)
-    end 
+    end
 end

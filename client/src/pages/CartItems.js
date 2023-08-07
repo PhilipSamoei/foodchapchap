@@ -1,16 +1,17 @@
 import React from 'react'
+import '../css/CartStyling.css'
 
-function CartItem({cart, setCart, item}) {
+function CartItems({cart, setCart, item}) {
     function removeFromCart(){
         setCart(cart.filter(cartItem => cartItem.id !== item.id))
       }
     return (
         <div className='row'>
-                <div className='description'>{item.description}</div>
-                <div className='price'>{item.amount }</div>
-                <div className='col-act'> <button onClick={removeFromCart} className='rmv-btn'>Remove from cart</button></div>
+                <div className='category'>{item.category}</div>
+                <div className='price'>{item.price }</div>
+                <div className='col-act'> <button onClick={removeFromCart} className='rmv-btn'>Remove</button></div>
         </div>
       )
 }
 
-export default CartItem
+export default CartItems

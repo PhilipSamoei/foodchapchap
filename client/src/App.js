@@ -10,13 +10,15 @@ import Foodcard from './pages/Foodcard';
 import RestaurantCard from './components/Restaurant';
 import Restaurant from '../src/components/Restaurant';
 import BeverageCard from './pages/Beverage';
-
-
+import Footercomp from './components/Footer';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 
 function App() {
   const [currentUser, setCurrentUser] = useState([]);
   const [userActive, setUserActive] = useState(false);
+  
 
   return (
     <div className="App">
@@ -49,7 +51,7 @@ function App() {
          path='/dishes'
          element={
           <Foodcard />
-         }/> 
+         }/>
 
         <Route
          path='/signup'
@@ -64,7 +66,7 @@ function App() {
           setUserActive={setUserActive}
           onLogin={setCurrentUser}
           />
-         }/>95696723b37da1b1242dab056d2b2df5e9c3b9
+         }/>
            <Route
          path='/Restaurant'
 
@@ -72,21 +74,36 @@ function App() {
           <Restaurant/>
          }/>
 
-       
-        <Route 
-         path='/Beverages' 
+
+        <Route
+         path='/Beverages'
          element={
           <BeverageCard />
-         }/> 
+         }/>
 
-          <Route 
-         path='/ContactUs' 
+          <Route
+         path='/ContactUs'
          element={
           <ContactUs />
          }/>
+
+         <Route
+         path='/cart'
+         element={
+          <CartPage />
+         }/>
+
+        <Route 
+        path="/checkout" 
+        element={
+        <CheckoutPage />
+        }/>
+
       </Routes>
 
+
       </BrowserRouter>
+      <Footercomp />
     </div>
     );
 }

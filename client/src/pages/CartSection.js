@@ -1,62 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import CartItem from './CartItem';
-import { useNavigate } from 'react-router-dom';
+import CartItems from './CartItems';
+import '../css/CartStyling.css';
 
-function Cart({ cart, setCart, setCartCheckout, setCartTotal }) {
-  let navigate = useNavigate();
+function Cart({ cart, setCart }) {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    const calculateTotal = () => {
-      const newTotal = cart.reduce(
-        (sum, cartItem) => sum + cartItem.amount * cartItem.quantity,
-        0
-      );
-      setTotal(newTotal);
-    };
-
-    calculateTotal();
+    setTotal(
+      cart.reduce((sum, cartItem) => sum + cartItem.price * cartItem.quantity, 0)
+    );
   }, [cart]);
 
-  function checkOut() {
-    setCartCheckout(cart);
-    setCartTotal(total);
-    setCart([]);
-    navigate('/checkout');
-  }
-
   return (
-    <div className="cart">
+    <div className='cart-container'>
       <h1>My Cart</h1>
-      <div className="row">
-        <div className="description">
-          <h2>Description</h2>
+
+      <div className='cart-header'>
+        <div className='cart-category'>
+          <h3>Category</h3>
         </div>
-        <div className="price">
-          <h2>Amount (Kshs)</h2>
+        <div className='cart-price'>
+          <h3>Price</h3>
         </div>
-        <div className="col-act"></div>
       </div>
 
-      {cart.map((cartItem) => (<CartItem 
-          key={cartItem.id} 
-          item={cartItem}
-          cart={cart}
-          setCart={setCart}
-        />
-      ))}
+      {cart && cart.length > 0 ? (
+        cart.map((cartItem) => (
+          <CartItems key={cartItem.id} item={cartItem} setCart={setCart} />
+        ))
+      ) : (
+        <p>No items in the cart</p>
+      )}
 
-      <div className="row">
-        <div className="description">
+      <div className='cart-total'>
+        <div className='cart-category'>
           <h3>Total</h3>
         </div>
-        <div className="price">
+        <div className='cart-price'>
           <h3>Kshs {total}</h3>
         </div>
-        <div className="col-act">
-          <button className="checkout-btn" onClick={checkOut}>
-            Checkout
-          </button>
+        <div className='col-act'>
+          <button className='order-btn'>Order Now</button>
         </div>
       </div>
     </div>
