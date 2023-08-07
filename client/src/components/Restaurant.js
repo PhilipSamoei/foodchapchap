@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../css/Restaurant.css';
+import RatingComponent from './RatingComponent';
+
 function RestaurantCard() {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [q, setQ] = useState("");
   const [searchParam] = useState(["name", "address"]);
-  const [filterParam, setFilterParam] = useState("ALL"); // Initialize with "ALL"
+  const [filterParam, setFilterParam] = useState("ALL");
+
   useEffect(() => {
     fetchRestaurants();
   }, []);
+
   const fetchRestaurants = () => {
     setLoading(true);
     setError(null);
@@ -24,6 +29,7 @@ function RestaurantCard() {
         setLoading(false);
       });
   };
+
   const handleRatingChange = async (restaurantId, newRating) => {
     try {
       const response = await fetch(`http://127.0.0.1:3000/restaurants/${restaurantId}`, {
@@ -47,6 +53,7 @@ function RestaurantCard() {
       setError('Failed to update rating');
     }
   };
+
   const filteredRestaurants = restaurants.filter(item => {
     const isMatchingSearch = searchParam.some(newItem =>
       item[newItem].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
@@ -57,6 +64,7 @@ function RestaurantCard() {
       return item.ambience === parseInt(filterParam) && isMatchingSearch;
     }
   });
+
   return (
     <div>
       <div className="search-wrapper">
@@ -78,7 +86,8 @@ function RestaurantCard() {
             setFilterParam(e.target.value);
           }}
           className="custom-select"
-          aria-label='filter restaurants by ambience'>
+          aria-label='filter restaurants by ambience'
+        >
           <option value="ALL">All Ambiences</option>
           <option value="5">Five star</option>
           <option value="4">Four star</option>
@@ -107,9 +116,10 @@ function RestaurantCard() {
                       currentRating={restaurant.ambience}
                       onRatingChange={handleRatingChange}
                     />
-
                   </div>
-                  <button className='cart'>view</button>
+                  <Link to={`/restaurants/${restaurant.id}`}>
+                    <button className='cart'>View</button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -119,36 +129,5 @@ function RestaurantCard() {
     </div>
   );
 }
-function RatingComponent({ restaurantId, currentRating, onRatingChange }) {
-  const [rating, setRating] = useState(currentRating || 0);
-  const handleStarClick = newRating => {
-    setRating(newRating);
-    onRatingChange(restaurantId, newRating);
-  };
-  return (
-    <div className="stars">
-      {[1, 2, 3, 4, 5].map(star => (
-        <span
-          key={star}
-          className={star <= rating ? "star filled" : "star"}
-          onClick={() => handleStarClick(star)}
-        >
-          ★
-        </span>
-      ))}
-    </div>
-  );
-}
+
 export default RestaurantCard;
-
-
-
-
-
-
-
-
-
-
-
-

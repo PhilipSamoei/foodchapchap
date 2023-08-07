@@ -13,7 +13,7 @@ class RestaurantsController < ApplicationController
 
     def show
         restaurant = find_restaurant
-        render json:restaurant
+        render json:restaurant, include: [:dishes, :beverages]
     end
     def update
         @restaurant = Restaurant.find(params[:id])
