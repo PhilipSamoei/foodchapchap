@@ -2,8 +2,8 @@ class BeveragesController < ApplicationController
     # before_action :authorize_request
 
     def index
-        beverage = Beverage.all
-        render json: beverage
+        beverages = Beverage.includes(:restaurant).all
+        render json: beverages.map { |beverage| beverage.as_json.merge(restaurant_name: beverage.restaurant.name) }, include: :restaurant
     end
 
     def create
@@ -13,7 +13,7 @@ class BeveragesController < ApplicationController
     
         def show 
             beverage = find_beverage
-            render json:beverage
+            render json:beverage, include: :restaurant
         end
 
         def update

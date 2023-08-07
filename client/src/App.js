@@ -14,6 +14,7 @@ import Footercomp from './components/Footer';
 import Dashboard from './components/Dashboard';
 import FormTable from './components/RestaurantProd';
 import DishesTableForm from './components/DishesProd';
+import BeveragesTableForm from './components/BeveragesProd';
 
 
 
@@ -41,6 +42,12 @@ function App() {
 
          <Route
          path='/'
+         element={
+          <HomePage/>
+         }/>
+         
+         <Route
+         path='/Home'
          element={
           <HomePage/>
          }/>
@@ -85,9 +92,15 @@ function App() {
          element={
          <FormTable />
          }/>
-
+         
          <Route
          path='/beverages-admin'
+         element={
+         <BeveragesTableForm />
+         }/>
+
+         <Route
+         path='/food-admin'
          element={
          <DishesTableForm />
          }/>
@@ -111,7 +124,7 @@ function App() {
 
 
       </BrowserRouter>
-      {/* <Footercomp /> */}
+      <Footercomp />
     </div>
     );
 }
