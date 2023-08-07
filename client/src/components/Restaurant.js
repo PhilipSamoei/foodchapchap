@@ -111,7 +111,9 @@ function RestaurantCard() {
                       currentRating={restaurant.ambience}
                       onRatingChange={handleRatingChange}
                     />
+
                   </div>
+                  <button className='cart'>view</button>
                 </div>
               </div>
             ))}
