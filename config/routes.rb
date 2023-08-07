@@ -10,11 +10,12 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:index, :show, :create, :destroy,  :update]
   resources :restaurants do
     resources :dishes, only: :show
+    resources :beverages, only: :show
   end
 
 
   resources :blogs, only: [:index, :show, :create, :destroy,  :update]
-  
+
   post '/auth/login', to: 'authentication#login'
   delete '/auth/logout', to: 'authentication#logout'
 
