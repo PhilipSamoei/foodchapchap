@@ -1,7 +1,7 @@
 require_relative '../../lib/tasks/json_web_token.rb'
 
 class AuthenticationController < ApplicationController
-  before_action :authorize_request, except: [:login, :logout]
+  before_action :authorize_request, except: :login
 
   # POST /auth/login
   def login
@@ -16,17 +16,10 @@ class AuthenticationController < ApplicationController
         expires: 24.hours.from_now
       }
 
-      render json: { username: @user.username, user_id: @user.id }, status: :ok
+      render json: { username: @user.username }, status: :ok
     else
       render json: { error: 'unauthorized' }, status: :unauthorized
     end
-  end
-
-  def logout
-    # Clear the HTTP-only cookie
-    cookies.delete(:jwt_token)
-
-    render json: { message: "Logged out successfully" }, status: :ok
   end
 
   private

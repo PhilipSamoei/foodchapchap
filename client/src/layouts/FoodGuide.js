@@ -1,5 +1,6 @@
 import React from 'react'
 import "../css/FoodGuide.css"
+
 function FoodGuide() {
   return (
     <div >
@@ -28,6 +29,4 @@ function FoodGuide() {
   )
 }
 
-export default FoodGuide
-
-// style={{backgroundColor:"#198754"}}
+export default FoodGuide;
