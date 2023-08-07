@@ -19,7 +19,7 @@ Restaurant.create([
   { name: 'Fogo Gaucho, Kilimani', address: 'Galana Plaza, Kilimani', ambience: 3 ,image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgQ2wmHjUyCDwzv877Lt1G1DjSDVwCDpPryA&usqp=CAU '}
 
 ])
-
+puts "restaurants"
 Dish.create([
   { name: 'pizza', category: 'Pizza', restaurant_id: 1,image: 'https://img.freepik.com/free-photo/hawaiian-pizza_74190-2500.jpg?size=626&ext=jpg ' , price: '1100'},
   { name: 'pizza', category: 'Pizza', restaurant_id: 2,image: 'https://img.freepik.com/free-photo/slice-fresh-pizza-with-pepperoni-white_144627-24389.jpg?size=626&ext=jpg ' , price: '1100'},
@@ -82,6 +82,7 @@ Dish.create([
   { name: 'sardine in saor', category: 'Italian dishes', restaurant_id: 9, image: 'https://www.deliciousmagazine.co.uk/wp-content/uploads/2018/09/324137-1-eng-GB_4911.jpg',price:'1500'},
   { name: 'arancini', category: 'Italian dishes', restaurant_id: 10, image: 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/arancini_balls-db2b1df.jpg',price:'1000'}
 ])
+puts "Dishes"
 
 Beverage.create([
   { name: 'cola drink', category: 'soft drink', restaurant_id: 1,image: ' https://img.freepik.com/free-photo/fresh-cola-drink-with-green-lime_144627-12396.jpg?size=626&ext=jpg&ga=GA1.1.606411282.1690526406&semt=sph ' , price: '1100'},
@@ -115,14 +116,44 @@ Beverage.create([
   { name: 'milk shake', category: 'milk shake', restaurant_id: 1,image: 'https://img.freepik.com/free-photo/milkshake-set-table_140725-9239.jpg?size=626&ext=jpg&ga=GA1.1.606411282.1690526406&semt=ais' , price: '1100'},
   { name: 'milk shake', category: 'milk shake', restaurant_id: 2,image: 'https://img.freepik.com/free-photo/milkshake-set-table_140725-9239.jpg?size=626&ext=jpg&ga=GA1.1.606411282.1690526406&semt=ais' , price: '1100'}
 ])
-5.times do
-  User.create(
-    username: Faker::Internet.unique.username,
-    email: Faker::Internet.unique.email,
-    password: 'password'
-  )
-end
-puts "Users created"
+
+puts "beverages"
+User.create(
+  [
+    {
+      username: "issac_satterfield",
+      email: "sherri_farrell@sipes.example",
+      password: "password",
+      image: "https://i.pinimg.com/564x/47/8f/d8/478fd85dadad2bae3a6450196573fa60.jpg"
+
+    },
+    {
+      username: "marco",
+      email: "rossana.nienow@kovacek.example",
+      password: "password",
+      image: "https://i.pinimg.com/564x/67/90/60/679060d15d1dbd809ff81fe1cbe60748.jpg"
+    },
+    {
+      username: "franklyn",
+      email: "thanh@will.example",
+      password: "password",
+      image: "https://i.pinimg.com/564x/19/aa/9f/19aa9f32f03943dd01d6e22a920a72b0.jpg"
+    },
+    {
+      username: "rico_stiedemann",
+      email: "syble@durgan-emard.test",
+      password: "password",
+      image: "https://i.pinimg.com/564x/df/d2/37/dfd237adc64b44cb076b92a6e8f2df02.jpg"
+    },
+    {
+      username: "maximina_walsh",
+      email: "carlena@schowalter-schmidt.test",
+      password: "password",
+      image: "https://i.pinimg.com/564x/da/43/84/da438437df08d8eff9bb83bbb5303fb9.jpg"
+    }
+  ]
+  
+)
 
 
 user_ids = (1..5).to_a

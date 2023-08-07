@@ -9,12 +9,12 @@ class RestaurantsController < ApplicationController
     def create
         restaurant = Restaurant.create!(restaurant_params)
         render json: restaurant, status: :created
-        end
+    end
     
-        def show 
-            restaurant = find_restaurant
-            render json:restaurant
-        end
+    def show 
+        restaurant = find_restaurant
+        render json:restaurant
+    end
 
     def show
         restaurant = find_restaurant
@@ -27,6 +27,7 @@ class RestaurantsController < ApplicationController
         else
           render json: { error: 'Failed to update restaurant Ambience' }, status: :unprocessable_entity
         end
+    end
 
         private
 
