@@ -40,7 +40,7 @@ function NavBar({userActive, setUserActive}){
                 <button
                     className='logout-login'
                 ><a href='/signup'>Sign up</a></button>
-    
+
                 <button
                     className='logout-login'
                 ><a href='/login'>Log in</a></button>

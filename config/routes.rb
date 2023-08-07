@@ -8,8 +8,13 @@ Rails.application.routes.draw do
   resources :beverages, only: [:index, :show, :create, :update,:destroy]
   resources :dishes, only: [:index, :show, :create, :update,:destroy]
   resources :restaurants, only: [:index, :show, :create, :destroy,  :update]
+  resources :restaurants do
+    resources :dishes, only: :show
+  end
+
+
   resources :blogs, only: [:index, :show, :create, :destroy,  :update]
-  # Defines the root path route ("/")
+  
   post '/auth/login', to: 'authentication#login'
   delete '/auth/logout', to: 'authentication#logout'
 
