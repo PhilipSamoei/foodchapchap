@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../css/Restaurant.css';
 import RatingComponent from './RatingComponent';
 
+
 function RestaurantCard() {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -102,7 +103,7 @@ function RestaurantCard() {
           <p>An error occurred: {error}</p>
         ) : (
           <div className="card-container">
-            {filteredRestaurants.map(restaurant => (
+            {filteredRestaurants.map(restaurant=> (
               <div className="card-restaurant" key={restaurant.id}>
                 <img className="card-image" src={restaurant.image} alt={restaurant.name} />
                 <div className="card-details">
@@ -126,8 +127,32 @@ function RestaurantCard() {
           </div>
         )}
       </div>
+      <div>
+       
+      </div>
     </div>
   );
 }
 
-export default RestaurantCard;
+function RatingComponent({ restaurantId, currentRating, onRatingChange }) {
+  const [rating, setRating] = useState(currentRating || 0);
+  const handleStarClick = newRating => {
+    setRating(newRating);
+    onRatingChange(restaurantId, newRating);
+  };
+  return (
+    <div className="stars">
+      {[1, 2, 3, 4, 5].map(star => (
+        <span
+          key={star}
+          className={star <= rating ? "star filled" : "star"}
+          onClick={() => handleStarClick(star)}
+        >
+          ★
+        </span>
+      ))}
+    </div>
+  );
+}
+export default RestaurantCard
+

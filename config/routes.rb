@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :blogs
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :reviews, only: [:index, :show, :create, :update,:destroy]
   resources :orders, only: [:index, :show, :create, :update,:destroy]
@@ -11,7 +12,9 @@ Rails.application.routes.draw do
     resources :dishes, only: :show
   end
 
-  # Defines the root path route ("/")
+
+  resources :blogs, only: [:index, :show, :create, :destroy,  :update]
+  
   post '/auth/login', to: 'authentication#login'
   delete '/auth/logout', to: 'authentication#logout'
 

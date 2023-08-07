@@ -11,6 +11,7 @@ import RestaurantCard from './components/Restaurant';
 import BeverageCard from './pages/Beverage';
 import Footercomp from './components/Footer';
 import RestaurantDetails from './components/RestaurantDetails';
+import BlogList from './blog/BlogList';
 
 function App() {
   const [currentUser, setCurrentUser] = useState([]);
@@ -38,6 +39,19 @@ function App() {
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/restaurants/:id" element={<RestaurantDetails />} />
         </Routes>
+
+         path='/ContactUs'
+         element={
+          <ContactUs />
+         }/>
+
+        <Route
+         path='/Blog'
+         element={
+          <BlogList />
+         }/>
+      </Routes>
+
       </BrowserRouter>
       <Footercomp />
     </div>
