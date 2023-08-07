@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link } from "react-router-dom"
 import '../css/NavBar.css';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate } from 'react-router-dom';
 // import ContactUs from '/components/ContactUs'
 
 function NavBar({userActive, setUserActive}){
@@ -32,6 +31,7 @@ function NavBar({userActive, setUserActive}){
                 <li><Link to="/Beverages" smooth={true}> Beverages </Link></li>
                 <li><Link to="/ContactUs" smooth={true}> Contact Us</Link></li>
                 <li><Link className='menu' to="/dishes" smooth={true}> Explore</Link></li>
+                <li><Link to="/Dashboard" smooth={true}> Dashboard </Link></li>
             </div>
 
 

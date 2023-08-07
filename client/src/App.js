@@ -11,6 +11,10 @@ import RestaurantCard from './components/Restaurant';
 import Restaurant from '../src/components/Restaurant';
 import BeverageCard from './pages/Beverage';
 import Footercomp from './components/Footer';
+import Dashboard from './components/Dashboard';
+import FormTable from './components/RestaurantProd';
+import DishesTableForm from './components/DishesProd';
+
 
 
 
@@ -31,6 +35,7 @@ function App() {
       <BrowserRouter>
 
       <NavBar userActive={userActive} setUserActive={setUserActive}/>
+   
 
       <Routes>
 
@@ -57,7 +62,37 @@ function App() {
           <SignUp/>
          }/>
 
-        <Route
+           <Route
+         path='/Beverages'
+         element={
+          <BeverageCard />
+         }/>
+
+          <Route
+         path='/ContactUs'
+         element={
+          <ContactUs />
+         }/>
+         
+         <Route
+         path='/Dashboard'
+         element={
+          <Dashboard />
+         }/>
+
+         <Route
+         path='/restaurants-admin'
+         element={
+         <FormTable />
+         }/>
+
+         <Route
+         path='/beverages-admin'
+         element={
+         <DishesTableForm />
+         }/>
+         
+         <Route
          path='/login'
          element={
           <LogIn
@@ -72,23 +107,11 @@ function App() {
           <Restaurant/>
          }/>
 
-
-        <Route
-         path='/Beverages'
-         element={
-          <BeverageCard />
-         }/>
-
-          <Route
-         path='/ContactUs'
-         element={
-          <ContactUs />
-         }/>
       </Routes>
 
 
       </BrowserRouter>
-      <Footercomp />
+      {/* <Footercomp /> */}
     </div>
     );
 }

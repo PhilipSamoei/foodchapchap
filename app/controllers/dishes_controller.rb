@@ -2,9 +2,9 @@ class DishesController < ApplicationController
     # before_action :authorize_request
     
     def index
-        dish = Dish.all
-        render json: dish, include: :restaurant
-    end
+        dishes = Dish.includes(:restaurant).all
+        render json: dishes.map { |dish| dish.as_json.merge(restaurant_name: dish.restaurant.name) }
+      end
 
     def create
         dish = Dish.create!(dish_params)
