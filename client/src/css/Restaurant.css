@@ -9,7 +9,7 @@
 
 .card-restaurant{
     width: 300px;
-    height: 350px;
+    height: 430px;
     border: 1px solid #ccc;
     border-radius: 8px ;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -37,4 +37,108 @@
 .card-address, .card-ambience{
     margin: 0;
     margin-bottom: 5px;
+
 }
+
+.card-rating{
+  margin-bottom: 10px;
+}
+
+
+.star {
+    font-size: 24px;
+    color: #f95252;
+    cursor: pointer;
+  }
+
+  .filled {
+    color: #ffd700;
+  }
+  .search-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  .search-input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  .rating-container {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Style for the "Rate Ambience" text */
+  .card-rating {
+    margin-right: 10px; /* Adjust the spacing as needed */
+    font-weight: bold;
+  }
+
+  /* Style for the stars */
+  .stars {
+    display: flex;
+    align-items: center;
+  }
+
+  .star {
+    font-size: 24px; /* Adjust the size of the stars */
+    cursor: pointer;
+    margin-right: 5px; /* Adjust the spacing between stars */
+    color: #f8df9c; /* Color of unfilled stars */
+  }
+
+  .filled {
+    color: #ff9f1c; /* Color of filled stars */
+  }
+
+
+/* Style for the select dropdown */
+.custom-select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px; /* Adjust as needed */
+    margin-bottom: 20px;
+  }
+  button {
+
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+
+  }
+  button.active {
+    background-color: #FFCB74;
+  }
+  .cart{
+    width: fit-content;
+    height: 40px;
+   margin-left: 60px;
+   border-radius: 5px;
+
+  }
+  .cart {
+      border: none;
+      padding: 10px 10px ;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+  }
+
+  .cart:hover {
+      background-color: #FFCB74;
+  }
