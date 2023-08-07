@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import '../css/RestaurantDetails.css';
 
 function RestaurantDetails() {
   const { id } = useParams();
@@ -57,6 +58,7 @@ function RestaurantDetails() {
               <p className="card-category">Category: {dish.category}</p>
               <p className="card-price">Price: {dish.price}</p>
             </div>
+            <button className='cart'>Add to cart</button>
           </div>
         ))}
       </div>
@@ -70,6 +72,7 @@ function RestaurantDetails() {
               <p className="card-category">Category: {beverage.category}</p>
               <p className="card-price">Price: {beverage.price}</p>
             </div>
+            <button className='cart'>Add to cart</button>
           </div>
         ))}
       </div>

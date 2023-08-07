@@ -38,20 +38,9 @@ function App() {
           <Route path="/Beverages" element={<BeverageCard />} />
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/restaurants/:id" element={<RestaurantDetails />} />
+          {/* Move this Route inside the Routes component */}
+          <Route path="/Blog" element={<BlogList />} />
         </Routes>
-
-         path='/ContactUs'
-         element={
-          <ContactUs />
-         }/>
-
-        <Route
-         path='/Blog'
-         element={
-          <BlogList />
-         }/>
-      </Routes>
-
       </BrowserRouter>
       <Footercomp />
     </div>
