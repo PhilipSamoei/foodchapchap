@@ -11,6 +11,7 @@ import RestaurantCard from './components/Restaurant';
 import Restaurant from '../src/components/Restaurant';
 import BeverageCard from './pages/Beverage';
 import Footercomp from './components/Footer';
+import BlogList from './blog/BlogList';
 
 
 
@@ -83,6 +84,12 @@ function App() {
          path='/ContactUs'
          element={
           <ContactUs />
+         }/>
+
+        <Route
+         path='/Blog'
+         element={
+          <BlogList />
          }/>
       </Routes>
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Restaurant.css';
+
 function RestaurantCard() {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -47,6 +48,8 @@ function RestaurantCard() {
       setError('Failed to update rating');
     }
   };
+
+  
   const filteredRestaurants = restaurants.filter(item => {
     const isMatchingSearch = searchParam.some(newItem =>
       item[newItem].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
@@ -93,7 +96,7 @@ function RestaurantCard() {
           <p>An error occurred: {error}</p>
         ) : (
           <div className="card-container">
-            {filteredRestaurants.map(restaurant => (
+            {filteredRestaurants.map(restaurant=> (
               <div className="card-restaurant" key={restaurant.id}>
                 <img className="card-image" src={restaurant.image} alt={restaurant.name} />
                 <div className="card-details">
@@ -115,6 +118,9 @@ function RestaurantCard() {
             ))}
           </div>
         )}
+      </div>
+      <div>
+       
       </div>
     </div>
   );
@@ -139,16 +145,4 @@ function RatingComponent({ restaurantId, currentRating, onRatingChange }) {
     </div>
   );
 }
-export default RestaurantCard;
-
-
-
-
-
-
-
-
-
-
-
-
+export default RestaurantCard

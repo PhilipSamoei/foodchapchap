@@ -30,7 +30,7 @@ function NavBar({userActive, setUserActive}){
                 <li><Link to="/" smooth={true}> Home </Link></li>
                 <li><Link to="/Restaurants" smooth={true}> Restaurants </Link></li>
                 <li><Link to="/Beverages" smooth={true}> Beverages </Link></li>
-                <li><Link to="/ContactUs" smooth={true}> Contact Us</Link></li>
+                <li><Link to="/Blog" smooth={true}> Blog</Link></li>
                 <li><Link className='menu' to="/dishes" smooth={true}> Explore</Link></li>
             </div>
 
