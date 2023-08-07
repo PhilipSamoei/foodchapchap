@@ -21,7 +21,7 @@ function Footercomp() {
                   <li><Link to="/ContactUs" smooth={true}> ContactUs</Link></li>
             </BrowserRouter>
           </p>
-          <p className="footer-company-name">FoodChapChap © 2023</p>
+          <p className="footer-company-name">FoodChapChap © {new Date().getFullYear()} </p>
         </div>
     
 

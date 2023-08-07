@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Restaurant.css';
-import BlogList from '../blog/BlogList';
 
 function RestaurantCard() {
   const [restaurants, setRestaurants] = useState([]);

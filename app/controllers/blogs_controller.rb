@@ -2,15 +2,15 @@ class BlogsController < ApplicationController
 
     def index
         blog = Blog.all
-        render json: blog
+        render json: blog, include: :user
     end
     def create
         blog = Blog.create! (blog_params)
         render json: blog , status: :created
     end
     def show
-        beverage = find_beverage
-        render json: beverage
+        beverage = blog_params
+        render json: beverage , include: :user
     end
     def update
         beverage = find_beverage
