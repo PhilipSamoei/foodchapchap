@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authorize_request, except: :create
+    # before_action :authorize_request, except: :create
 
     def index
         user = User.all
@@ -39,10 +39,10 @@ class UsersController < ApplicationController
         end
 
         def user_params
-            params.permit(:username, :password, :email)
+            params.permit(:username, :password, :email , :image)
         end 
 
         def user_update_params
-            params.permit(:username, :password, :email)
+            params.permit(:username, :password, :email, :image)
         end
 end
