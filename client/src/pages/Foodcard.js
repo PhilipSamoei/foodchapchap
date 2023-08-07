@@ -93,9 +93,9 @@ function Foodcard() {
               <div className='card-back' key={dish.id}>
                 <img className='card-image' src={dish.image} alt={dish.name}/>
                 <div className='card-details'>
-                  <h2 className='card-title'>
-                    {dish.restaurant?.name?.charAt(0).toUpperCase() + (dish.restaurant?.name?.slice(1).toLowerCase() || '')} - {dish.name?.charAt(0).toUpperCase() + (dish.name?.slice(1).toLowerCase() || '')}
-                  </h2>
+               <h2 className='card-title'>
+               {dish.restaurant_name} - {dish.name?.charAt(0).toUpperCase() + (dish.name?.slice(1).toLowerCase() || '')}
+              </h2>
                   <p className='card-category'>Category: {dish.category?.charAt(0).toUpperCase() + (dish.category?.slice(1).toLowerCase() || '')}</p>
                   <p className='card-price'>Price: KSH {dish.price}</p>
                 </div>
