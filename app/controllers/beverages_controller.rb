@@ -2,7 +2,8 @@ class BeveragesController < ApplicationController
     def index
         beverages = Beverage.includes(:restaurant).all
         render json: beverages.map { |beverage| beverage.as_json.merge(restaurant_name: beverage.restaurant.name) }, include: :restaurant
-    end
+      end
+      
 
     def create
         beverage = Beverage.create!(beverage_params)
