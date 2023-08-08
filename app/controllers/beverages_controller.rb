@@ -1,9 +1,7 @@
 class BeveragesController < ApplicationController
-    # before_action :authorize_request
-
     def index
-        beverage = Beverage.all
-        render json: beverage
+        beverages = Beverage.includes(:restaurant).all
+        render json: beverages.map { |beverage| beverage.as_json.merge(restaurant_name: beverage.restaurant.name) }, include: :restaurant
     end
 
     def create
@@ -13,10 +11,10 @@ class BeveragesController < ApplicationController
     
         def show 
             beverage = find_beverage
-            render json:beverage
+            render json:beverage, include: :restaurant
         end
-
-        def update
+  
+    def update
            beverage = find_beverage
             if beverage
              beverage.update(beverage_update_params)
@@ -24,8 +22,8 @@ class BeveragesController < ApplicationController
             else
               render json: { error: "beverage not found" }, status: :not_found
             end
-        end
-    
+    end
+
 
         def destroy
             beverage = find_beverage
@@ -41,7 +39,7 @@ class BeveragesController < ApplicationController
 
         def beverage_params
             params.permit(:name, :image, :category, :price, :restaurant_id)
-        end 
+        end
 
         def beverage_update_params
             params.permit(:price)
