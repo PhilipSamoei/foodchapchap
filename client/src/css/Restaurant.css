@@ -109,6 +109,28 @@
     max-width: 300px; /* Adjust as needed */
     margin-bottom: 20px;
   }
+
+/* CartIconStyling.css */
+
+/* Style for the cart icon link */
+.cart-icon-container {
+  position: fixed;
+  top: 120px; /* Adjust the top spacing as needed */
+  right: 50px;
+  z-index: 9999;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Style for the cart icon image */
+.cart-icon-link img {
+  width: 70px; /* Adjust the size as needed */
+  height: auto;
+}
+
+/* Add any additional styling for the cart icon if needed */
   button {
 
     display: block;
@@ -142,3 +164,4 @@
   .cart:hover {
       background-color: #FFCB74;
   }
+

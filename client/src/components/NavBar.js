@@ -24,7 +24,6 @@ function NavBar({userActive, setUserActive}){
 
     return(
         <nav  className='nav'>
-            {/* <div className='chap'><h4>food<span>ChapChap</span></h4></div> */}
             <div className='link'>
                 <li><Link to="/" smooth={true}></Link></li>
                 <li><Link to="/Home" smooth={true}> Home </Link></li>
