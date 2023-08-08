@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import cartIcon from '../assets/download.gif';
 import '../css/FoodCard.css';
 
 function Foodcard() {
@@ -41,7 +43,6 @@ function Foodcard() {
   const saveCartToLocalStorage = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
   };
-
   useEffect(() => {
     saveCartToLocalStorage();
   }, [cart]);
@@ -55,9 +56,7 @@ function Foodcard() {
     }
   };
 
-  const removeFromCart = (dishId) => {
-    setCart(prevCart => prevCart.filter(item => item.id !== dishId));
-  };
+
 
   const filteredDishes = dishes.filter(dish => {
     const isMatchingSearch = searchParam.some(param =>
@@ -112,6 +111,11 @@ function Foodcard() {
             ))}
           </ul>
         </div>
+        <div className='cart-icon-container'>
+        <Link to='/cart' className='cart-icon-link'>
+          <img src={cartIcon} alt='Cart' className='cart-icon' />
+        </Link>
+      </div>
         <div>
           {loading ? (
             <p>Loading dishes...</p>
@@ -137,17 +141,6 @@ function Foodcard() {
 
           )}
         </div>
-      </div>
-      <div className="cart-container">
-        <h2>Cart</h2>
-        <ul>
-          {cart.map(item => (
-            <li key={item.id}>
-              <span>{item.name}</span> - <span>Price: KSH {item.price}</span>
-            </li>
-          ))}
-        </ul>
-        <p>Total: KSH {cart.reduce((total, item) => total + item.price * item.quantity, 0)}</p>
       </div>
     </div>
   );

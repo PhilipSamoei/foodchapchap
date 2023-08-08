@@ -60,10 +60,9 @@
 .card-price{
   color: darkgreen;
 }
-/* FoodCardSidebar.css */
+
 
 .sidebar {
-  /* position: fixed; */
   width: 20%;
   padding: 20px;
   background-color: #f4f4f4;

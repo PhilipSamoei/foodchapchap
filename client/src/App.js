@@ -12,7 +12,6 @@ import Restaurant from '../src/components/Restaurant';
 import BeverageCard from './pages/Beverage';
 import Footercomp from './components/Footer';
 import CartPage from './pages/CartPage';
-import CheckoutPage from './pages/CheckoutPage';
 
 
 function App() {
@@ -22,13 +21,6 @@ function App() {
 
   return (
     <div className="App">
-
-      {/* <div className='landing-page'>
-         <h1 >food <span
-         style={{
-          color:'#FFCB74',
-         }}> ChapChap</span> </h1>
-      </div> */}
 
       <BrowserRouter>
 
@@ -92,12 +84,6 @@ function App() {
          element={
           <CartPage />
          }/>
-
-        <Route 
-        path="/checkout" 
-        element={
-        <CheckoutPage />
-        }/>
 
       </Routes>
 

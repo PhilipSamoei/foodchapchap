@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import cartIcon from '../assets/download.gif';
 import '../css/Restaurant.css';
 function RestaurantCard() {
   const [restaurants, setRestaurants] = useState([]);
@@ -6,7 +8,7 @@ function RestaurantCard() {
   const [error, setError] = useState(null);
   const [q, setQ] = useState("");
   const [searchParam] = useState(["name", "address"]);
-  const [filterParam, setFilterParam] = useState("ALL"); // Initialize with "ALL"
+  const [filterParam, setFilterParam] = useState("ALL");
   useEffect(() => {
     fetchRestaurants();
   }, []);
@@ -85,6 +87,11 @@ function RestaurantCard() {
           <option value="3">Three star</option>
         </select>
         <span className='focus'></span>
+      </div>
+      <div className='cart-icon-container'>
+        <Link to='/cart' className='cart-icon-link'>
+          <img src={cartIcon} alt='Cart' className='cart-icon' />
+        </Link>
       </div>
       <div>
         {loading ? (

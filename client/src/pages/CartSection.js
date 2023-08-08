@@ -2,14 +2,26 @@ import React, { useEffect, useState } from 'react';
 import CartItems from './CartItems';
 import '../css/CartStyling.css';
 
-function Cart({ cart, setCart }) {
+function Cart() {
+  const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    setTotal(
-      cart.reduce((sum, cartItem) => sum + cartItem.price * cartItem.quantity, 0)
-    );
-  }, [cart]);
+    const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
+    setCart(cartProducts);
+    setTotal(cartProducts.reduce((sum, cartItem) => sum + cartItem.price * cartItem.quantity, 0));
+  }, []);
+
+  const handleRemoveItem = (itemId) => {
+    const updatedCart = cart.filter((cartItem) => cartItem.id !== itemId);
+    setCart(updatedCart);
+    updateLocalStorage(updatedCart);
+    setTotal(updatedCart.reduce((sum, cartItem) => sum + cartItem.price * cartItem.quantity, 0));
+  };
+
+  const updateLocalStorage = (updatedCart) => {
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+  };
 
   return (
     <div className='cart-container'>
@@ -26,7 +38,7 @@ function Cart({ cart, setCart }) {
 
       {cart && cart.length > 0 ? (
         cart.map((cartItem) => (
-          <CartItems key={cartItem.id} item={cartItem} setCart={setCart} />
+          <CartItems key={cartItem.id} item={cartItem} onRemove={handleRemoveItem} />
         ))
       ) : (
         <p>No items in the cart</p>
