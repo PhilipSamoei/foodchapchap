@@ -6,8 +6,8 @@ function CartItems({ item, onRemove }) {
     <div className='cart-item'>
       <div className='cart-header'>
         <h2 className='card-title'>
-          {item.restaurant?.name?.charAt(0).toUpperCase() +
-            (item.restaurant?.name?.slice(1).toLowerCase() || '')} -{' '}
+          {/* {item.restaurant?.name?.charAt(0).toUpperCase() +
+            (item.restaurant?.name?.slice(1).toLowerCase() || '')} -{' '} */}
           {item.name?.charAt(0).toUpperCase() + (item.name?.slice(1).toLowerCase() || '')}
         </h2>
         <div className='cart-category'>

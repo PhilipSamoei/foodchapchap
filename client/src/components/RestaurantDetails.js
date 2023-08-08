@@ -52,7 +52,20 @@ function RestaurantDetails() {
       setCart([...cart, { ...dish, quantity: 1 }]);
     }
   };
+const addCart = (beverage) => {
+    const cartItem = { ...beverage, quantity: 1 };
+    setCart(prevCart => [...prevCart, cartItem]);
+    saveCartLocalStorage([...cart, cartItem]);
+  };
 
+  const loadCartLocalStorage = () => {
+    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    setCart(cartData);
+  };
+
+  const saveCartLocalStorage = (cartData) => {
+    localStorage.setItem('cart', JSON.stringify(cartData));
+  };
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -83,7 +96,7 @@ function RestaurantDetails() {
             <div className="card-details">
               <h4 className="card-title">{dish.name}</h4>
               <p className="card-category">Category: {dish.category}</p>
-              <p className="card-price">Price: {dish.price}</p>
+              <p className="card-price">Price: Ksh {dish.price}.00</p>
             </div>
             <button className='cart' onClick={() => addToCart(dish)}>Add to cart</button>
           </div>
@@ -99,7 +112,7 @@ function RestaurantDetails() {
               <p className="card-category">Category: {beverage.category}</p>
               <p className="card-price">Price: {beverage.price}</p>
             </div>
-            <button className='cart' onClick={() => addToCart(beverage)} >Add to cart</button>
+            <button className='cart' onClick={() => addCart(beverage)} >Add to cart</button>
           </div>
         ))}
       </div>
