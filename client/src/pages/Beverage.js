@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../css/FoodCard.css';
+import cartIcon from '../assets/download.gif';
 
 function BeverageCard() {
   const [beverages, setBeverages] = useState([]);
@@ -8,9 +10,11 @@ function BeverageCard() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchParam] = useState(["name", "category"]);
   const [filterCategory, setFilterCategory] = useState("ALL");
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     fetchBeverages();
+    loadCartFromLocalStorage(); 
   }, []);
 
   const fetchBeverages = () => {
@@ -41,8 +45,24 @@ function BeverageCard() {
     }
   });
 
+  const addToCart = (beverage) => {
+    const cartItem = { ...beverage, quantity: 1 };
+    setCart(prevCart => [...prevCart, cartItem]);
+    saveCartToLocalStorage([...cart, cartItem]);
+  };
+
+  const loadCartFromLocalStorage = () => {
+    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    setCart(cartData);
+  };
+
+  const saveCartToLocalStorage = (cartData) => {
+    localStorage.setItem('cart', JSON.stringify(cartData));
+  };
+
   return (
     <div>
+      
       <div className="search-wrapper">
         <label htmlFor="search-form">
           <input
@@ -69,6 +89,11 @@ function BeverageCard() {
         </select>
         <span className='focus'></span>
       </div>
+      <div className='cart-icon-container'>
+        <Link to='/cart' className='cart-icon-link'>
+          <img src={cartIcon} alt='Cart' className='cart-icon' />
+        </Link>
+      </div>
       <div>
         {loading ? (
           <p>Loading beverages...</p>
@@ -86,7 +111,9 @@ function BeverageCard() {
                   <p className='card-category'>Category: {beverage.category?.charAt(0).toUpperCase() + (beverage.category?.slice(1).toLowerCase() || '')}</p>
                   <p className='card-price'>Price: KSH{beverage.price || 0}</p>
                 </div>
-                <button className='cart'>Add to cart</button>
+                <button onClick={() => addToCart(beverage)} className='cart'>
+                  Add to cart
+                </button>
               </div>
             ))}
           </div>

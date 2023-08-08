@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import cartIcon from '../assets/download.gif';
 import '../css/Restaurant.css';
 import RatingComponent from './RatingComponent';
 
@@ -11,7 +12,6 @@ function RestaurantCard() {
   const [q, setQ] = useState("");
   const [searchParam] = useState(["name", "address"]);
   const [filterParam, setFilterParam] = useState("ALL");
-
   useEffect(() => {
     fetchRestaurants();
   }, []);
@@ -96,6 +96,11 @@ function RestaurantCard() {
         </select>
         <span className='focus'></span>
       </div>
+      <div className='cart-icon-container'>
+        <Link to='/cart' className='cart-icon-link'>
+          <img src={cartIcon} alt='Cart' className='cart-icon' />
+        </Link>
+      </div>
       <div>
         {loading ? (
           <p>Loading...</p>
@@ -119,7 +124,7 @@ function RestaurantCard() {
                     />
                   </div>
                   <Link to={`/restaurants/${restaurant.id}`}>
-                    <button className='cart'>View</button>
+                    <button className='cart'>View Menu</button>
                   </Link>
                 </div>
               </div>
