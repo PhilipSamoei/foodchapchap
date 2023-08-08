@@ -40,7 +40,7 @@ function CreateDishes() {
         try {
           setLoading(true);
           await axios.post("http://127.0.0.1:3000/dishes", values);
-          navigate("/beverages-admin");
+          navigate("/food-admin");
         } catch (error) {
           console.log(error);
           alert("Validation failed");

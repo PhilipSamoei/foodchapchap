@@ -31,6 +31,7 @@ function App() {
 
         <NavBar userActive={userActive} setUserActive={setUserActive} />
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/Restaurants" element={<RestaurantCard />} />
           <Route path="/dishes" element={<Foodcard />} />
