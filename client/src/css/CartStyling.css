@@ -1,12 +1,13 @@
 .cart-container {
   width: 100%;
-  height: 500px;
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
+  margin-bottom: 100px;
+ 
 }
 
 .cart-header {
@@ -48,7 +49,7 @@
 }
 
 .col-act {
-  margin-left: auto;
+  margin-left: 10px;
 }
 
 .order-btn {
@@ -58,8 +59,15 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  width: fit-content;
 }
 
 .order-btn:hover {
   background-color: #ffaa00;
+}
+.rmv-btn{
+  width: fit-content;
+  height: fit-content;
+  border-radius: 50%;
+  margin-left: 10px;
 }

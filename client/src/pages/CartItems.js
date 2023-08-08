@@ -11,14 +11,14 @@ function CartItems({ item, onRemove }) {
           {item.name?.charAt(0).toUpperCase() + (item.name?.slice(1).toLowerCase() || '')}
         </h2>
         <div className='cart-category'>
-          <p>Category: {item.category?.charAt(0).toUpperCase() + (item.category?.slice(1).toLowerCase() || '')}</p>
+          <p> {item.category?.charAt(0).toUpperCase() + (item.category?.slice(1).toLowerCase() || '')}</p>
         </div>
         <div className='cart-price'>
-          <p>Price: {item.price}</p>
+          <p>KSH {item.price}.00</p>
         </div>
         <div className='cart-actions'>
           <button onClick={() => onRemove(item.id)} className='rmv-btn'>
-            Remove
+            X
           </button>
         </div>
       </div>
