@@ -17,12 +17,19 @@ class RestaurantsController < ApplicationController
     end
 
     def update
-      @restaurant = Restaurant.find(params[:id])
-      if @restaurant.update(Ambience: params[:ambience])
-        render json: @restaurant
-      else
-        render json: { error: 'Failed to update restaurant Ambience' }, status: :unprocessable_entity
+        @restaurant = Restaurant.find(params[:id])
+        if @restaurant.update(restaurant_params)
+          render json: @restaurant
+        else
+          render json: { error: 'Failed to update restaurant Ambience' }, status: :unprocessable_entity
+        end
       end
+      
+    def destroy
+        restaurant = find_restaurant
+        restaurant.destroy
+        head :no_content
+     
     end
 
     private

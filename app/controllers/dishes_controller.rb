@@ -1,8 +1,8 @@
 class DishesController < ApplicationController
     def index
-        dish = Dish.all
-        render json: dish
-    end
+        dishes = Dish.includes(:restaurant).all
+        render json: dishes.map { |dish| dish.as_json.merge(restaurant_name: dish.restaurant.name) }, include: :restaurant
+      end
 
     def create
         dish = Dish.create!(dish_params)

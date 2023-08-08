@@ -10,18 +10,28 @@ import Foodcard from './pages/Foodcard';
 import RestaurantCard from './components/Restaurant';
 import BeverageCard from './pages/Beverage';
 import Footercomp from './components/Footer';
+import CartPage from './pages/CartPage';
+import Dashboard from './components/Dashboard';
+import FormTable from './components/RestaurantProd';
+import DishesTableForm from './components/DishesProd';
+import BeveragesTableForm from './components/BeveragesProd';
 import RestaurantDetails from './components/RestaurantDetails';
 import BlogList from './blog/BlogList';
+
 
 function App() {
   const [currentUser, setCurrentUser] = useState([]);
   const [userActive, setUserActive] = useState(false);
+  
 
   return (
     <div className="App">
+
       <BrowserRouter>
+
         <NavBar userActive={userActive} setUserActive={setUserActive} />
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/Restaurants" element={<RestaurantCard />} />
           <Route path="/dishes" element={<Foodcard />} />
@@ -40,6 +50,15 @@ function App() {
           <Route path="/restaurants/:id" element={<RestaurantDetails />} />
           {/* Move this Route inside the Routes component */}
           <Route path="/Blog" element={<BlogList />} />
+            <Route path='/Dashboard' element={<Dashboard />} />
+            <Route path='/restaurants-admin' element={<FormTable />} />
+            <Route path='/beverages-admin' element={<BeveragesTableForm />} />
+            <Route path='/food-admin' element={<DishesTableForm />} />
+               <Route
+         path='/cart'
+         element={
+          <CartPage />
+         }/>
         </Routes>
       </BrowserRouter>
       <Footercomp />
