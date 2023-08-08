@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useFormik } from 'formik';
 
+
 function TableRestaurant() {
   const [userList, setUserList] = useState([]);
   const [isLoading, setLoading] = useState(true);
@@ -87,10 +88,10 @@ function TableRestaurant() {
                       {editUserId === user.id ? (
                         <UserEditForm initialValues={user} onCancel={handleCancelEdit} onSubmit={handleUpdate} isLoading={isLoading} />
                       ) : (
-                        <>
-                          <button onClick={() => handleEdit(user.id)} className='btn btn-info btn-sm mr-1'>Edit</button>
-                          <button onClick={() => handleDelete(user.id)} className='btn btn-danger btn-sm mr-1'>Delete</button>
-                        </>
+                        <div className="btn-group">
+                        <button onClick={() => handleEdit(user.id)} className='btn btn-info btn-sm edit-button'>Edit</button>
+                        <button onClick={() => handleDelete(user.id)} className='btn btn-danger btn-sm delete-button'>Delete</button>
+                      </div>
                       )}
                     </td>
                   </tr>
