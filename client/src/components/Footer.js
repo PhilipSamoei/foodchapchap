@@ -11,9 +11,8 @@ function Footercomp() {
         <div className="footer-left">
           <h3><img src={logo} alt="shop"/></h3>
           <p className="footer-links">
-            <a href="#" className="link-1">Home</a>
-            <a href="#">Blog</a>
-            <a href="#">Pricing</a>
+            <a href="http://localhost:4000/Home" className="link-1">Home</a>
+            <a href="http://localhost:4000/Blog">Blog</a>
             <a href="#">About</a>
             <a href="http://localhost:4000/ContactUs">Contact</a>
           </p>

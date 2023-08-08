@@ -22,7 +22,7 @@ import BlogList from './blog/BlogList';
 function App() {
   const [currentUser, setCurrentUser] = useState([]);
   const [userActive, setUserActive] = useState(false);
-  
+
 
   return (
     <div className="App">
@@ -31,8 +31,7 @@ function App() {
 
         <NavBar userActive={userActive} setUserActive={setUserActive} />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/Restaurants" element={<RestaurantCard />} />
           <Route path="/dishes" element={<Foodcard />} />
           <Route path="/signup" element={<SignUp />} />
