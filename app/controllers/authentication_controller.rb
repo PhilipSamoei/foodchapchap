@@ -1,30 +1,30 @@
-require_relative '../../lib/tasks/json_web_token.rb'
-
 class AuthenticationController < ApplicationController
-  before_action :authorize_request, except: :login
 
   # POST /auth/login
   def login
-    @user = User.find_by_email(params[:email])
-    if @user&.authenticate(params[:password])
-      token = JsonWebToken.encode(user_id: @user.id)
-
-      # Set the JWT as an HTTP-only cookie in the response
-      cookies.signed[:jwt_token] = {
-        value: token,
-        httponly: true,
-        expires: 24.hours.from_now
-      }
-
-      render json: { username: @user.username }, status: :ok
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])  # Use params[:password] instead of params[:password_digest]
+      render json: { user: user }
     else
-      render json: { error: 'unauthorized' }, status: :unauthorized
+      render json: { error: "Invalid email or password" }, status: :unauthorized
     end
   end
 
-  private
+  def admin
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password_digest])
+      render json: {user: user}
+    else
+      render json: {error: "Invalid username or password"}, status: :unauthorized
+    end
+  end
 
-  def login_params
-    params.permit(:email, :password)
-  end  
+  def verify
+    #verify the token
+    if logged_in?
+      render json: {user: current_user}
+    else
+      render json: {error: "Invalid token"}, status: :unauthorized
+    end
+  end
 end
