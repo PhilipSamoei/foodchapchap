@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-    # before_action :authorize_request, except: :create
+    protect_from_forgery with: :exception
+  skip_before_action :verify_authenticity_token
+  before_action :authorize, only: [:show, :edit, :update, :destroy]
 
     def index
         user = User.all
@@ -7,13 +9,23 @@ class UsersController < ApplicationController
     end
 
     def create
+        if params["password_digest"] == params["confirmpassword"]
+            #encrypt password
+            new_user = {
+                username: params["username"],
+                email: params["email"],
+                password_digest: BCrypt::Password.create(params["password_digest"])
+            }
         user = User.create!(user_params)
         render json: user, status: :created
+    else
+        render json: {error: "Password does not match" }, status: :not_found
+    end
         end
     
         def show 
-            user = find_user
-            render json:user
+        user = User.find_by(id: session[:user_id])
+        render json: user
         end
 
         def update

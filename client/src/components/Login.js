@@ -1,69 +1,67 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import '../css/Login.css';
 
-function LogIn( {setUserActive, onLogin }){
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+function LogIn({ setUserActive, onLogin }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    function handleLogin(e){
-      e.preventDefault()
+  const loginMessage = location.state?.message; // Get the login message from location state
+  const intendedRoute = location.state?.intendedRoute || '/home';
 
-      const authorizeUser = {
-          email: email,
-          password: password,
-      }
+  function handleLogin(e) {
+    e.preventDefault();
 
-      fetch('http://localhost:3000/auth/login',{
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(authorizeUser),
-        })
-          .then(res => {
-              if (res.ok){
-                  res.json().then((res) => {
-                      setUserActive(true);
-                      onLogin(res);
-                      console.log(res);
-                  })
-                  navigate('/home');
-              } else {
-                  res.json().then(res => console.log(`failed ${res}`))
-              }
-          })
-          .catch(err => console.log(err))
-    }
+    const authorizeUser = {
+      email: email,
+      password: password,
+    };
 
-    return (
-        <div className="login-containers" style={{
-          display: 'flex',
-          justifyContent: 'center',
-          height: '100%'
-        }}>
-          <form onSubmit={handleLogin}>
-            <h2>Login</h2>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button onClick={handleLogin} type="submit">Log in</button>
-            <p>
-            Don't have an account? <Link to="/signup">Sign up</Link>
-            </p>
-          </form>
-        </div>
-      );
+    fetch('http://localhost:3000/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(authorizeUser),
+    })
+      .then((res) => {
+        if (res.ok) {
+          res.json().then((resData) => {
+            const { user, token } = resData;
+            setUserActive(true);
+            onLogin(user, token);
+            navigate(intendedRoute);
+          });
+        } else {
+          res.json().then((resData) => {
+            console.log(`Failed: ${resData.error}`);
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        // Handle error here, e.g., display error message to the user
+      });
+  }
+
+  return (
+    <div className="login-containers" style={{ display: 'flex', justifyContent: 'center', height: '100%' }}>
+      <form onSubmit={handleLogin}>
+        <h2>Login</h2>
+        {loginMessage && (
+          <p style={{ fontWeight: 'bold', color: 'black' }}>{loginMessage}</p>
+        )}
+        <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <button type="submit">Log in</button>
+        <p>
+          Don't have an account? <Link to="/signup">Sign up</Link>
+        </p>
+      </form>
+    </div>
+  );
 }
 
 export default LogIn;

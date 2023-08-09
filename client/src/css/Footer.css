@@ -140,16 +140,16 @@ section {
 
 .footer-distributed .footer-company-about{
 	line-height: 20px;
-	color:  #92999f;
+	color:  #d8e1ea;
 	font-size: 13px;
-	font-weight: normal;
+	font-weight: bold;
 	margin: 0;
 }
 
 .footer-distributed .footer-company-about span{
 	display: block;
-	color:  #ffffff;
-	font-size: 14px;
+	color:  #bfe6f3;
+	font-size: 16px;
 	font-weight: bold;
 	margin-bottom: 20px;
 }
@@ -160,18 +160,18 @@ section {
 
 .footer-distributed .footer-icons a{
 	display: inline-block;
-	width: 35px;
+	width: 40px;
 	height: 35px;
 	cursor: pointer;
 	background-color:  #33383b;
 	border-radius: 2px;
 
 	font-size: 20px;
-	color: #ffffff;
+	color: hsl(0, 100%, 100%);
 	text-align: center;
 	line-height: 35px;
 
-	margin-right: 3px;
+	margin-right: 10px;
 	margin-bottom: 5px;
 }
 
@@ -249,5 +249,5 @@ section {
   .Btn:hover .svgContainer {
     background-color: rgba(156, 156, 156, 0.466);
   }
-  
+
 

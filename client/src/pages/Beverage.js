@@ -106,7 +106,7 @@ function BeverageCard() {
                 <img className='card-image' src={beverage.image} alt={beverage.name}/>
                 <div className='card-details'>
                   <h2 className='card-title'>
-                    {beverage.restaurant?.name?.charAt(0).toUpperCase() + (beverage.restaurant?.name?.slice(1).toLowerCase() || '')} - {beverage.name?.charAt(0).toUpperCase() + (beverage.name?.slice(1).toLowerCase() || '')}
+                  {beverage.restaurant_name?.charAt(0).toUpperCase() + (beverage.restaurant_name?.slice(1).toLowerCase() || '')} - {beverage.name?.charAt(0).toUpperCase() + (beverage.name?.slice(1).toLowerCase() || '')}
                   </h2>
                   <p className='card-category'>Category: {beverage.category?.charAt(0).toUpperCase() + (beverage.category?.slice(1).toLowerCase() || '')}</p>
                   <p className='card-price'>Price: KSH{beverage.price || 0}</p>
