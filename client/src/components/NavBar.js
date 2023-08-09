@@ -3,23 +3,27 @@ import '../css/NavBar.css';
 import {Link, useNavigate } from 'react-router-dom';
 // import ContactUs from '/components/ContactUs'
 
-function NavBar({userActive, setUserActive}){
-    const navigate = useNavigate()
-
+function NavBar({ userActive, setUserActive }) {
+    const navigate = useNavigate();
+  
     function handleLogout() {
-        fetch('http://localhost:3000/auth/logout', {
-          method: 'DELETE'
-        })
-        .then((res) => {
+      fetch('http://localhost:3000/auth/logout', {
+        method: 'DELETE'
+      })
+      .then((res) => {
         if (res.ok) {
-            res.json().then(() => {
-                setUserActive=false
-                navigate('/login');
-            });
+          // No need to parse JSON for a 204 response
+          setUserActive(false);
+          navigate('/login');
         } else {
-            res.json().then((res) => console.log(`failed ${res.error}`));
+          res.json().then((errorData) => {
+            console.log(`Failed: ${errorData.error}`);
+          });
         }
-        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     }
 
     return(

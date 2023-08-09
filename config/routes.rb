@@ -16,8 +16,12 @@ Rails.application.routes.draw do
 
   resources :blogs, only: [:index, :show, :create, :destroy,  :update]
 
-  post '/auth/login', to: 'authentication#login'
-  delete '/auth/logout', to: 'authentication#logout'
+  post "/auth/login", to: "authentication#login"
+  post "auth/admin", to: "authentication#admin"
+  post "/signup", to: "users#create"
+  get "/auth/verify", to: "authentication#verify"
+  delete '/auth/logout', to: 'sessions#destroy'
+  get '/me', to: 'users#show'
 
   get '/*a', to: 'application#not_found'
   # root "articles#index"
