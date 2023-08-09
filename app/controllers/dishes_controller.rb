@@ -11,7 +11,7 @@ class DishesController < ApplicationController
 
         def show
             dish = find_dish
-            render json:dish
+            render json:dish, include: :restaurant
         end
 
         def update
