@@ -15,10 +15,10 @@ function Footercomp() {
         <div className="footer-left">
           <h3><img src={logo} alt="shop"/></h3>
           <p className="footer-links">
-		  <h2>Click below for other links 👇👇</h2>
+		  <h2>Usefull links 👇👇</h2>
             <a href="http://localhost:4000/Home" className="link-1">Home</a>
             <a href="http://localhost:4000/Blog">Blog</a>
-            <a href="#">About</a>
+            {/* <a href="#">About</a> */}
             <a href="http://localhost:4000/ContactUs">Contact us</a>
           </p>
         </div>
@@ -34,7 +34,7 @@ function Footercomp() {
           </div>
           <div>
             <i className="fa fa-envelope"></i>
-            <p><a href="#">support@company.com</a></p>
+            <p><a href="mailto:simonkhartoum@gmail.com">foodchapchap@company.com</a></p>
           </div>
         </div>
 
