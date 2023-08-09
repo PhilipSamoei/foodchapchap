@@ -114,7 +114,7 @@ function RestaurantCard() {
                 <div className="card-details">
                   <h2 className="card-title">{restaurant.name}</h2>
                   <p className="card-address">Address: {restaurant.address}</p>
-                  <p className="card-ambience">Ambience: {restaurant.ambience}</p>
+                  <p className="card-ambience">Ambience: {restaurant.ambience} Star</p>
                   <div className="rating-container">
                     <p className="card-rating">Rate </p>
                     <RatingComponent

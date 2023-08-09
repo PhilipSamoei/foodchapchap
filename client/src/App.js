@@ -22,6 +22,7 @@ import LoginEntry from './components/LoginEntry';
 function App() {
   const [currentUser, setCurrentUser] = useState([]);
   const [userActive, setUserActive] = useState(false);
+  const [intendedRoute, setIntendedRoute] = useState(null);
 
   return (
     <div className="App">
@@ -34,7 +35,13 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route
             path="/login"
-            element={<LogIn setUserActive={setUserActive} onLogin={setCurrentUser} />}
+            element={
+              <LogIn
+                setUserActive={setUserActive}
+                onLogin={setCurrentUser}
+                intendedRoute={intendedRoute}
+              />
+            }
           />
           {/* Protected route guard */}
           <Route
@@ -46,23 +53,28 @@ function App() {
                   <Route path="/Restaurants" element={<RestaurantCard />} />
                   <Route path="/dishes" element={<Foodcard />} />
                   <Route path="/Beverages" element={<BeverageCard />} />
-                  {/* Add more protected routes here */}
                   <Route path="/restaurants/:id" element={<RestaurantDetails />} />
                   <Route path="/Dashboard" element={<Dashboard />} />
                   <Route path="/restaurants-admin" element={<FormTable />} />
                   <Route path="/beverages-admin" element={<BeveragesTableForm />} />
                   <Route path="/food-admin" element={<DishesTableForm />} />
                   <Route path="/cart" element={<CartPage />} />
+                  <Route path="/ContactUs" element={<ContactUs />} />
+                  <Route path="/Blog" element={<BlogList />} />
                 </Routes>
               ) : (
-                // If user is not logged in, navigate to the login page
-                <Navigate to="/login" replace state={{ message: "Kindly log in to access this page" }} />
+                // If user is not logged in, navigate to the login page with intended route
+                <Navigate
+                to="/login"
+                replace
+               state={{
+               intendedRoute: window.location.pathname, // Store the intended route
+               message: 'Kindly log in to access this page',
+              }}
+                />
               )
             }
           />
-          {/* Add more public routes here */}
-          <Route path="/ContactUs" element={<ContactUs />} />
-          <Route path="/Blog" element={<BlogList />} />
         </Routes>
       </BrowserRouter>
       <Footercomp />
