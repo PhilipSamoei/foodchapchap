@@ -41,13 +41,10 @@ function Cart() {
 
   const handleOrderNow = () => {
     const totalAmount = total + serviceFee;
-
-    // Simulate order confirmation and notification
     const confirmationMessage = `Your order has been confirmed. Total amount: Kshs ${totalAmount}`;
     alert(confirmationMessage);
     console.log('Order confirmed');
 
-    // Clear the cart and update local storage after placing the order
     setCart([]);
     updateLocalStorage([]);
     setTotal(0);
