@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useFormik } from 'formik';
-import React, { useState, useEffect } from 'react';  
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function CreateDishes() {
@@ -9,7 +9,6 @@ function CreateDishes() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch the list of restaurants from the backend and set it to the 'restaurants' state
     async function fetchRestaurants() {
       try {
         const response = await axios.get("http://127.0.0.1:3000/restaurants");
@@ -41,7 +40,7 @@ function CreateDishes() {
         try {
           setLoading(true);
           await axios.post("http://127.0.0.1:3000/dishes", values);
-          navigate("/beverages-admin");
+          navigate("/food-admin");
         } catch (error) {
           console.log(error);
           alert("Validation failed");
@@ -59,7 +58,7 @@ function CreateDishes() {
             className={`form-control ${myFormik.errors.image ? "is-invalid" : ""} `} />
           <span style={{ color: "red" }}>{myFormik.errors.image}</span>
         </div>
-          
+
         <div className='row'>
           <div className="col-lg-6">
             <label>Name</label>
@@ -105,7 +104,7 @@ function CreateDishes() {
           </div>
         </div>
       </form>
-      {/* {JSON.stringify(myFormik.values)} */}
+
     </div>
   );
 }

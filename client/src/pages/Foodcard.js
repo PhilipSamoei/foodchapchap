@@ -96,8 +96,7 @@ function Foodcard() {
         </label>
       </div>
 
-
-      <div style={{display:'flex'}}>
+      <div style={{ display: 'flex' }}>
       <div className="sidebar">
         <h3>Filter by Category</h3>
         <ul>
@@ -113,58 +112,44 @@ function Foodcard() {
           ))}
         </ul>
       </div>
-      <div>
-        {loading ? (
-          <p>Loading dishes...</p>
-        ) : error ? (
-          <p>Error fetching dishes: {error.message}</p>
-        ) : (
-          <div className='card-container'>
-            {filteredDishes.map(dish => (
-              <div className='card-back' key={dish.id}>
-                <img className='card-image' src={dish.image} alt={dish.name}/>
-                <div className='card-details'>
-               <h2 className='card-title'>
-               {dish.restaurant_name} - {dish.name?.charAt(0).toUpperCase() + (dish.name?.slice(1).toLowerCase() || '')}
-              </h2>
-                  <p className='card-category'>Category: {dish.category?.charAt(0).toUpperCase() + (dish.category?.slice(1).toLowerCase() || '')}</p>
-                  <p className='card-price'>Price: KSH {dish.price}</p>
-                </div>
-                <button className='cart'>Add to cart</button>
-              </div>
-
-            ))}
-          </ul>
-        </div>
-        <div className='cart-icon-container'>
-        <Link to='/cart' className='cart-icon-link'>
-          <img src={cartIcon} alt='Cart' className='cart-icon' />
-        </Link>
-      </div>
         <div>
           {loading ? (
             <p>Loading dishes...</p>
           ) : error ? (
             <p>Error fetching dishes: {error.message}</p>
           ) : (
-            <div className='card-container'>
-              {filteredDishes.map(dish => (
-                <div className='card-back' key={dish.id}>
-                  <img className='card-image' src={dish.image} alt={dish.name} />
-                  <div className='card-details'>
-                    <h2 className='card-title'>
-                      {dish.restaurant?.name?.charAt(0).toUpperCase() + (dish.restaurant?.name?.slice(1).toLowerCase() || '')} - {dish.name?.charAt(0).toUpperCase() + (dish.name?.slice(1).toLowerCase() || '')}
-                    </h2>
-                    <p className='card-category'>Category: {dish.category?.charAt(0).toUpperCase() + (dish.category?.slice(1).toLowerCase() || '')}</p>
-                    <p className='card-price'>Price: KSH {dish.price}</p>
-                  </div>
-                  <button className='cart' onClick={() => addToCart(dish)}>Add to cart</button>
+            <div className="card-container">
+            {filteredDishes.map(dish => (
+              <div className="card-back" key={dish.id}>
+                <img className="card-image" src={dish.image} alt={dish.name} />
+                <div className="card-details">
+                  <h2 className="card-title">
+                    {dish.restaurant_name.charAt(0).toUpperCase() +
+                      dish.restaurant_name.slice(1).toLowerCase()}{' '}
+                    -{' '}
+                    {dish.name.charAt(0).toUpperCase() +
+                      dish.name.slice(1).toLowerCase()}
+                  </h2>
+                  <p className="card-category">
+                    Category: {dish.category.charAt(0).toUpperCase() +
+                      dish.category.slice(1).toLowerCase()}
+                  </p>
+                  <p className="card-price">Price: KSH {dish.price}</p>
                 </div>
+                <button className="cart" onClick={() => addToCart(dish)}>
+                  Add to cart
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
 
-              ))}
-            </div>
 
-          )}
+          <div className="cart-icon-container">
+            <Link to="/cart" className="cart-icon-link">
+              <img src={cartIcon} alt="Cart" className="cart-icon" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

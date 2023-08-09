@@ -12,6 +12,7 @@ function CartPage() {
     <div>
       <Cart cart={cart} setCart={setCart} addToCart={addToCart}/>
     </div>
+    
   );
 }
 

@@ -124,7 +124,7 @@ function RestaurantCard() {
                     />
                   </div>
                   <Link to={`/restaurants/${restaurant.id}`}>
-                    <button className='cart'>View</button>
+                    <button className='cart'>View Menu</button>
                   </Link>
                 </div>
               </div>

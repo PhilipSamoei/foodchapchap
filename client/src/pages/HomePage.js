@@ -1,8 +1,12 @@
 import React from 'react';
 import '../css/Homepage.css';
 import FoodGuide from '../layouts/FoodGuide';
+// import cartIcon from '../assets/download.gif';
+// import { Link } from 'react-router-dom';
 
-function HomePage() {
+function HomePage( 
+  // {itemCount} 
+  ) {
 
 
   return (
@@ -23,7 +27,12 @@ function HomePage() {
         </span>
       </p>
     </div>
-
+    {/* <div className='cart-icon-container'>
+      <Link to='/cart' className='cart-icon-link'>
+        <img src={cartIcon} alt='Cart' className='cart-icon' />
+        {itemCount > 0 && <span className='item-count'>{itemCount}</span>}
+      </Link>
+    </div> */}
     <div className='fav-container'>
         
     </div>

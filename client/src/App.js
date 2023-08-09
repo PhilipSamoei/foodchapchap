@@ -17,12 +17,13 @@ import DishesTableForm from './components/DishesProd';
 import BeveragesTableForm from './components/BeveragesProd';
 import RestaurantDetails from './components/RestaurantDetails';
 import BlogList from './blog/BlogList';
+import RegistrationForm from '../src/components/RegistrationForm';
 
 
 function App() {
   const [currentUser, setCurrentUser] = useState([]);
   const [userActive, setUserActive] = useState(false);
-  
+
 
   return (
     <div className="App">
@@ -32,7 +33,7 @@ function App() {
         <NavBar userActive={userActive} setUserActive={setUserActive} />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/Restaurants" element={<RestaurantCard />} />
           <Route path="/dishes" element={<Foodcard />} />
           <Route path="/signup" element={<SignUp />} />
@@ -54,7 +55,8 @@ function App() {
             <Route path='/restaurants-admin' element={<FormTable />} />
             <Route path='/beverages-admin' element={<BeveragesTableForm />} />
             <Route path='/food-admin' element={<DishesTableForm />} />
-               <Route
+            <Route path='/RegistrationForm' element={<RegistrationForm/>}/>              
+              <Route
          path='/cart'
          element={
           <CartPage />
