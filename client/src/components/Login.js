@@ -9,6 +9,7 @@ function LogIn({ setUserActive, onLogin }) {
   const location = useLocation();
 
   const loginMessage = location.state?.message; // Get the login message from location state
+  const intendedRoute = location.state?.intendedRoute || '/home';
 
   function handleLogin(e) {
     e.preventDefault();
@@ -31,7 +32,7 @@ function LogIn({ setUserActive, onLogin }) {
             const { user, token } = resData;
             setUserActive(true);
             onLogin(user, token);
-            navigate('/home');
+            navigate(intendedRoute);
           });
         } else {
           res.json().then((resData) => {
