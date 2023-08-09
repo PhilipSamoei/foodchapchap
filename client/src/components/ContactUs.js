@@ -1,94 +1,69 @@
 import React, { useState } from "react";
 import '../css/ContactUs.css';
+import ReactDOM from 'react-dom';
+import emailjs from 'emailjs-com';
+import { Form, Input, TextArea, Button } from 'semantic-ui-react';
+import Swal from 'sweetalert2';
 
-function ContactUs() {
-    const [formData, setFormData] = useState({
-        userName: "",
-        userEmail: "",
-        userMessage: ""
-    });
+const SERVICE_ID = "service_uxtt8yi";
+const TEMPLATE_ID = "template_hbu59lq";
+const PUBLIC_KEY = "u1Q1V4hg1JAlvBZl5";
 
-    const [formErrors, setFormErrors] = useState({
-        userName: "",
-        userEmail: "",
-        userMessage: ""
-    });
-
-    function resetForm() {
-        setFormData({
-            userName: "",
-            userEmail: "",
-            userMessage: ""
+const ContactUs = () => {
+    const handleOnSubmit = (e) => {
+      e.preventDefault();
+      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY)
+        .then((result) => {
+          console.log(result.text);
+          Swal.fire({
+            icon: 'success',
+            title: 'Message Sent Successfully'
+          })
+        }, (error) => {
+          console.log(error.text);
+          Swal.fire({
+            icon: 'error',
+            title: 'Ooops, something went wrong',
+            text: error.text,
+          })
         });
-
-        setFormErrors({
-            userName: "",
-            userEmail: "",
-            userMessage: ""
-        });
-    }
-
-    function handleSubmit(event) {
-        event.preventDefault();
-        if (validateForm()) {
-            console.log(formData);
-            resetForm();
-        }
-    }
-
-    function handleChange(event) {
-        setFormData({ ...formData, [event.target.name]: event.target.value });
-        setFormErrors({ ...formErrors, [event.target.name]: "" });
-    }
-
-    function validateForm() {
-        let isValid = true;
-        const newErrors = { ...formErrors };
-
-        if (formData.userName.trim() === "") {
-            newErrors.userName = "Name is required";
-            isValid = false;
-        }
-
-        if (formData.userEmail.trim() === "") {
-            newErrors.userEmail = "Email is required";
-            isValid = false;
-        } else if (!/\S+@\S+\.\S+/.test(formData.userEmail)) {
-            newErrors.userEmail = "Invalid email format";
-            isValid = false;
-        }
-
-        if (formData.userMessage.trim() === "") {
-            newErrors.userMessage = "Message is required";
-            isValid = false;
-        }
-
-        setFormErrors(newErrors);
-        return isValid;
-    }
-
-    return (
-        <div className="container" id="contact">
-            <div className="contact">
-                <h3>Feel free to reach to us or share your views about food ChapChap</h3>
-            </div>
-            <form id="form" onSubmit={handleSubmit}>
-                <label>
-                    Name... <span><input className="form-input" type="text" name="userName" value={formData.userName} onChange={handleChange}></input></span>
-                </label>
-                <div className="error">{formErrors.userName}</div>
-                <label>
-                    Email... <span><input className="form-input" type="email" name="userEmail" value={formData.userEmail} onChange={handleChange}></input></span>
-                </label>
-                <div className="error">{formErrors.userEmail}</div>
-                <label>
-                    Message... <span><textarea className="form-input" type="text" name="userMessage" value={formData.userMessage} onChange={handleChange}></textarea></span>
-                </label>
-                <div className="error">{formErrors.userMessage}</div>
-                <button className="submit">Submit</button>
-            </form>
-        </div>
+      e.target.reset()
+    };
+  return (
+      <div className="Appcontact">
+        <Form onSubmit={handleOnSubmit}>
+          <Form.Field
+            id='form-input-control-email'
+            control={Input}
+            label='Email'
+            name='user_email'
+            placeholder='Email…'
+            required
+            icon='mail'
+            iconPosition='left'
+          />
+          <Form.Field
+            id='form-input-control-last-name'
+            control={Input}
+            label='Name'
+            name='user_name'
+            placeholder='Name…'
+            required
+            icon='user circle'
+            iconPosition='left'
+          />
+          <Form.Field
+            id='form-textarea-control-opinion'
+            control={TextArea}
+            label='Message'
+            name='user_message'
+            placeholder='Message…'
+            required
+          />
+          <Button type='submit' color='green'>Submit</Button>
+        </Form>
+      </div>
     );
-}
+  }
 
 export default ContactUs;
