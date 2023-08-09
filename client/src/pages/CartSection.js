@@ -56,7 +56,7 @@ function Cart() {
 
   return (
     <div className='cart-container'>
-      <h1>My Cart</h1>
+      <h1 className='cart-title'>My Cart</h1>
 
       <div className='cart-header'>
         <div className='cart-category'>
@@ -72,7 +72,7 @@ function Cart() {
           <CartItems key={cartItem.id} item={cartItem} onRemove={handleRemoveItem} />
         ))
       ) : (
-        <p>No items in the cart</p>
+        <p className='empty-cart-message'>No items in the cart</p>
       )}
 
       <div className='cart-total'>
@@ -84,9 +84,10 @@ function Cart() {
         </div>
         <div className='cart-price'>
           <h3>Service Fee: Kshs {serviceFee}</h3>
-          {/* <h3>{totalAmount}</h3> */}
         </div>
-        <div>Kshs  </div>
+        <div className='cart-price'>
+          <h3>Total Amount: Kshs {total + serviceFee}</h3>
+        </div>
         <div className='col-act'>
           <button className='order-btn' onClick={handleOrderNow}>Order Now</button>
         </div>
