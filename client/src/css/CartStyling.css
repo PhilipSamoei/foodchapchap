@@ -95,3 +95,45 @@
   margin-right: 30px;
   height: 30px;
 }
+.cart-quantity {
+  display: flex;
+  align-items: center; /* Vertically center the content */
+}
+
+/* Style for quantity buttons */
+.quantity-btn {
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 1rem;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  margin: 0 0.2rem; /* Add some spacing between icons and quantity */
+  border-radius: 50%; /* Make the button circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+/* Style for increased quantity button */
+.quantity-increase-btn {
+  background-color: #4caf50; /* Green color for increased quantity */
+  color: #fff;
+}
+
+/* Style for decreased quantity button */
+.quantity-decrease-btn {
+  background-color: #ff5722; /* Red color for decreased quantity */
+  color: #fff;
+}
+.quantity-input {
+  width: 40px; /* Set the desired width */
+  height: 24px; /* Set the desired height */
+  text-align: center;
+  font-size: 14px; /* Adjust font size as needed */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0 0.2rem; /* Add some spacing between input and buttons */
+}
