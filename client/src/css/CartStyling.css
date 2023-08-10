@@ -86,3 +86,12 @@
     font-size: 14px;
   }
 }
+.estimated-arrival {
+  display: flex;
+  align-items: center;
+}
+
+.estimated-arrival label {
+  margin-right: 30px;
+  height: 30px;
+}
