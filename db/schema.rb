@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_09_095757) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_10_051801) do
+  create_table "access_tokens", force: :cascade do |t|
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "admins", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -50,6 +56,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_095757) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "mpesas", force: :cascade do |t|
+    t.string "checkoutRequestID"
+    t.string "merchantRequestID"
+    t.string "amount"
+    t.string "mpesaReceiptNumber"
+    t.string "phoneNumber"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.integer "dish_id"
@@ -64,9 +80,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_095757) do
     t.string "name"
     t.string "address"
     t.integer "ambience"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
   end
 
   create_table "reviews", force: :cascade do |t|
