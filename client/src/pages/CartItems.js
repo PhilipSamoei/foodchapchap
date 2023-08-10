@@ -18,7 +18,7 @@ function CartItems({ item, onRemove, onQuantityChange }) {
           <button
             className={`quantity-btn quantity-decrease-btn`}
             onClick={() =>
-              onQuantityChange(item.id, Math.max(item.quantity - 1, 1)) // Ensure least quantity is 1
+              onQuantityChange(item.id, Math.max(item.quantity - 1, 1))
             }
           >
             -
@@ -28,7 +28,7 @@ function CartItems({ item, onRemove, onQuantityChange }) {
             value={item.quantity}
             onChange={(e) => onQuantityChange(item.id, parseInt(e.target.value))}
             className='quantity-input'
-            min='1' // Ensure least quantity is 1
+            min='1' 
           />
           <button
             className={`quantity-btn quantity-increase-btn`}

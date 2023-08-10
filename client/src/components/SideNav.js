@@ -9,7 +9,6 @@ function SideNav() {
         <div className="dashboard">
           <nav className="side-navbar">
             <ul>
-            {/* <li><Link to="/restaurants-admin" smooth={true}> Restaurants </Link></li> */}
                 <li><Link to="/beverages-admin" smooth={true}> Beverages </Link></li>
                 <li><Link to="/food-admin" smooth={true}> Dishes </Link></li>
                 <li><Link to="/users-admin" smooth={true}> Users </Link></li>

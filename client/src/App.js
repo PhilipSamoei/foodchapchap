@@ -31,7 +31,6 @@ function App() {
       <BrowserRouter>
         <NavBar userActive={userActive} setUserActive={setUserActive} />
         <Routes>
-          {/* Public routes */}
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/signup" element={<SignUp />} />
@@ -45,16 +44,13 @@ function App() {
               />
             }
           />
-          {/* Protected route guard */}
           <Route
             path="/*"
             element={
               userActive ? (
-                // If user is logged in, render the requested route
                 <Routes>
                   <Route path="/Restaurants" element={<RestaurantCard />} />
                   <Route path="/menu" element={<CombinedComponent />} />
-                  {/* <Route path="/Beverages" element={<BeverageCard />} /> */}
                   <Route path="/restaurants/:id" element={<RestaurantDetails />} />
                   <Route path="/Dashboard" element={<Dashboard />} />
                   <Route path="/restaurants-admin" element={<FormTable />} />
@@ -66,12 +62,11 @@ function App() {
                   <Route path='/RegistrationForm' element={<RegistrationForm/>}/>
                 </Routes>
               ) : (
-                // If user is not logged in, navigate to the login page with intended route
                 <Navigate
                 to="/login"
                 replace
                state={{
-               intendedRoute: window.location.pathname, // Store the intended route
+               intendedRoute: window.location.pathname, 
                message: 'Kindly log in to access this page',
               }}
                 />

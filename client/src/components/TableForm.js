@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { useFormik } from 'formik';
-import React, { useState } from 'react';  // Corrected import statement
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function CreateRestaurant() {
-  const [isLoading, setLoading] = useState(false);  // Using useState hook instead of useimage
+  const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const myFormik = useFormik(
@@ -15,13 +15,12 @@ function CreateRestaurant() {
         ambience: "",
         image: "",
       },
-      // Validating Forms while entering the data
       validate: (values) => {
         let errors = {};
 
         if (!values.name) {
           errors.name = "Please enter name";
-        }  // Added closing curly brace
+        }
 
         if (!values.address) {
           errors.address = "Please enter address";
@@ -37,7 +36,7 @@ function CreateRestaurant() {
 
         return errors;
       },
-      // One can be able to submit once the validate function returns an empty value (validation successful), else can't be submitted
+
       onSubmit: async (values) => {
         try {
           setLoading(true);
@@ -60,7 +59,7 @@ function CreateRestaurant() {
             className={`form-control ${myFormik.errors.image ? "is-invalid" : ""} `} />
           <span style={{ color: "red" }}>{myFormik.errors.image}</span>
         </div>
-          
+
         <div className='row'>
           <div className="col-lg-6">
             <label>Name</label>
@@ -88,7 +87,6 @@ function CreateRestaurant() {
           </div>
         </div>
       </form>
-      {/* {JSON.stringify(myFormik.values)} */}
     </div>
   );
 }

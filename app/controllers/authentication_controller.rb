@@ -1,9 +1,8 @@
 class AuthenticationController < ApplicationController
 
-  # POST /auth/login
   def login
     user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])  # Use params[:password] instead of params[:password_digest]
+    if user && user.authenticate(params[:password])
       render json: { user: user }
     else
       render json: { error: "Invalid email or password" }, status: :unauthorized
@@ -20,7 +19,6 @@ class AuthenticationController < ApplicationController
   end
 
   def verify
-    #verify the token
     if logged_in?
       render json: {user: current_user}
     else

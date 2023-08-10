@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     def create
         if params["password_digest"] == params["confirmpassword"]
-            #encrypt password
+        
             new_user = {
                 username: params["username"],
                 email: params["email"],
@@ -22,8 +22,8 @@ class UsersController < ApplicationController
         render json: {error: "Password does not match" }, status: :not_found
     end
         end
-    
-        def show 
+
+        def show
         user = User.find_by(id: session[:user_id])
         render json: user
         end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
         def user_params
             params.permit(:username, :password, :email , :image)
-        end 
+        end
 
         def user_update_params
             params.permit(:username, :password, :email, :image)

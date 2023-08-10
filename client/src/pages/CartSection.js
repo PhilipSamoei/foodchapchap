@@ -60,9 +60,28 @@ function Cart() {
     setServiceFee(0);
     setEstimatedArrival('');
   };
-  
+
   const handleAddMore = () => {
     setAddingMore(true);
+  };
+
+  const addItemToCart = async (item) => {
+    try {
+      const response = await fetch('http://localhost:3000/cart_items', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(item),
+      });
+
+      if (response.ok) {
+
+      } else {
+        
+      }
+    } catch (error) {
+    }
   };
 
 
@@ -112,7 +131,6 @@ function Cart() {
 
       {addingMore ? (
       <div className='add-more-container'>
-        {/* Your add more items UI here */}
         <button className='back-to-cart-btn' onClick={() => setAddingMore(false)}>
           Back to Cart
         </button>

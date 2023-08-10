@@ -8,7 +8,7 @@ function LogIn({ setUserActive, onLogin }) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const loginMessage = location.state?.message; // Get the login message from location state
+  const loginMessage = location.state?.message;
   const intendedRoute = location.state?.intendedRoute || '/home';
 
   function handleLogin(e) {
@@ -42,7 +42,6 @@ function LogIn({ setUserActive, onLogin }) {
       })
       .catch((err) => {
         console.log(err);
-        // Handle error here, e.g., display error message to the user
       });
   }
 
