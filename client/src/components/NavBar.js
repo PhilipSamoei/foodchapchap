@@ -32,8 +32,8 @@ function NavBar({ userActive, setUserActive }) {
                 <li><Link to="/" smooth={true}></Link></li>
                 <li><Link to="/Home" smooth={true}> Home </Link></li>
                 <li><Link to="/Restaurants" smooth={true}> Restaurants </Link></li>
-                <li><Link to="/Beverages" smooth={true}> Beverages </Link></li>
-                <li><Link className='menu' to="/dishes" smooth={true}> Dishes</Link></li>
+                {/* <li><Link to="/Beverages" smooth={true}> Beverages </Link></li> */}
+                <li><Link className='menu' to="/menu" smooth={true}> Menu</Link></li>
                 <li><Link to="/Blog" smooth={true}>View Blogs</Link></li>
                 <li><Link to="/Dashboard" smooth={true}> Dashboard </Link></li>
                 <li><Link to="/restaurants-admin" smooth={true}> Admin </Link></li>

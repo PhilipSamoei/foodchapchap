@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mpesas
   resources :blogs
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :reviews, only: [:index, :show, :create, :update,:destroy]
@@ -22,7 +23,9 @@ Rails.application.routes.draw do
   get "/auth/verify", to: "authentication#verify"
   delete '/auth/logout', to: 'sessions#destroy'
   get '/me', to: 'users#show'
-
+  # post '/payments/create', to: 'payments#create'
   get '/*a', to: 'application#not_found'
+  post '/stkpush',to:  'mpesas#stkpush'
+  post '/polling_payments',to: 'mpesas#polling_payments'
   # root "articles#index"
 end
