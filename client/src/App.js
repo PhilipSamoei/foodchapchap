@@ -20,6 +20,7 @@ import BlogList from './blog/BlogList';
 import LoginEntry from './components/LoginEntry';
 import CombinedComponent from './pages/CombinedComponent';
 import RegistrationForm from './components/RegistrationForm';
+import UserDataTable from './components/UserData';
 
 function App() {
   const [currentUser, setCurrentUser] = useState([]);
@@ -64,6 +65,7 @@ function App() {
                   <Route path="/ContactUs" element={<ContactUs />} />
                   <Route path="/Blog" element={<BlogList />} />
                   <Route path='/RegistrationForm' element={<RegistrationForm/>}/>
+                  <Route path="/users-admin" element={<UserDataTable />} />
                 </Routes>
               ) : (
                 // If user is not logged in, navigate to the login page with intended route
