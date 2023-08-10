@@ -6,9 +6,9 @@ import ContactUs from './components/ContactUs';
 import HomePage from './pages/HomePage';
 import SignUp from './components/SignUp';
 import LogIn from './components/Login';
-import Foodcard from './pages/Foodcard';
+// import Foodcard from './pages/Foodcard';
 import RestaurantCard from './components/Restaurant';
-import BeverageCard from './pages/Beverage';
+// import BeverageCard from './pages/Beverage';
 import Footercomp from './components/Footer';
 import CartPage from './pages/CartPage';
 import Dashboard from './components/Dashboard';
@@ -18,6 +18,7 @@ import BeveragesTableForm from './components/BeveragesProd';
 import RestaurantDetails from './components/RestaurantDetails';
 import BlogList from './blog/BlogList';
 import LoginEntry from './components/LoginEntry';
+import CombinedComponent from './pages/CombinedComponent';
 import RegistrationForm from './components/RegistrationForm';
 
 function App() {
@@ -52,8 +53,8 @@ function App() {
                 // If user is logged in, render the requested route
                 <Routes>
                   <Route path="/Restaurants" element={<RestaurantCard />} />
-                  <Route path="/dishes" element={<Foodcard />} />
-                  <Route path="/Beverages" element={<BeverageCard />} />
+                  <Route path="/menu" element={<CombinedComponent />} />
+                  {/* <Route path="/Beverages" element={<BeverageCard />} /> */}
                   <Route path="/restaurants/:id" element={<RestaurantDetails />} />
                   <Route path="/Dashboard" element={<Dashboard />} />
                   <Route path="/restaurants-admin" element={<FormTable />} />
