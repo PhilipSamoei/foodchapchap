@@ -1,0 +1,80 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+.slogan {
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30vh;
+    margin-left: 1px;
+}
+
+.images {
+    top: 20px;
+    float: left;
+    margin-right: 20px;
+    border-radius: 10px;
+    width: 1200px;
+    height: 90vh;
+
+}
+
+.flex {
+    display: flex;
+    margin-top: 3%;
+}
+.span{
+    color: brown;
+    font-size: 30px;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/pexels-ella-olsson-1640773.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+  #scroll-container {
+    /* border: 3px solid rgb(247, 244, 244); */
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  #scroll-text {
+    font-size: 20px;
+    font-weight: bold;
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+
+    -moz-animation: my-animation 30s linear infinite;
+    -webkit-animation: my-animation 30s linear infinite;
+    animation: my-animation 30s linear infinite;
+  }
+
+  @-moz-keyframes my-animation {
+    from { -moz-transform: translateX(100%); }
+    to { -moz-transform: translateX(-100%); }
+  }
+
+  @-webkit-keyframes my-animation {
+    from { -webkit-transform: translateX(100%); }
+    to { -webkit-transform: translateX(-100%); }
+  }
+
+  @keyframes my-animation {
+    from {
+      -moz-transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+    }
+    to {
+      -moz-transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
+    }
+  }
+
+
+
