@@ -3,7 +3,7 @@
     Welcome to FoodChapChap, an on-demand platform that aims to revolutionize the dining experience by providing a Pre-Order Service that allows customers to enjoy the benefits of a restaurant experience without the hassle of waiting in queues for meal preparation and the bill.
 
     CONTRIBUTERS
-    
+
     1.Simon Karuri-Footer,Contact us,Links,Routes
     2.Chris Kamau- Authentication,CRUD operations,Controllers
     3.Philip Samoei-Restaurants,Dishes,Beverages,UI/UX
@@ -54,7 +54,9 @@
 
    Clone this repository to your local machine.
 
-    Install the required dependencies using npm install.
+    Run Bundle Install in the App Directory
+    launch the Rails Server - rails s
+    Install the required dependencies in the client directory using npm install.
     Launch the web app using npm start in client directory.
 
    Contributing
