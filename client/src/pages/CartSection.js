@@ -105,6 +105,7 @@ function Cart() {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [serviceFee, setServiceFee] = useState(0);
+  const [estimatedArrival, setEstimatedArrival] = useState('');
 
   useEffect(() => {
     const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
@@ -113,7 +114,7 @@ function Cart() {
     setTotal(cartTotal);
 
     let fee = 0;
-    if (cartTotal < 499) {
+    if (cartTotal < 499 && cartTotal > 0) {
       fee = 30;
     } else if (cartTotal >= 500 && cartTotal < 1000) {
       fee = 50;
@@ -137,37 +138,17 @@ function Cart() {
     localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
-  const handleOrderNow = async () => {
-    try {
-      const response = await fetch('/payments/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+  const handleOrderNow = () => {
+    const totalAmount = total + serviceFee;
+    const confirmationMessage = `Your order has been confirmed. Total amount: Kshs ${totalAmount}`;
+    alert(confirmationMessage);
+    console.log('Order confirmed');
 
-      if (response.ok) {
-        const responseData = await response.json();
-        if (responseData.status === 'success') {
-          // Display a confirmation message to the user
-          alert('Payment successful!');
-          console.log('Order confirmed');
-
-          // Clear the cart and update local storage after placing the order
-          setCart([]);
-          updateLocalStorage([]);
-          setTotal(0);
-          setServiceFee(0);
-        } else {
-          alert('Payment failed. Please try again.');
-        }
-      } else {
-        alert('Payment failed. Please try again.');
-      }
-    } catch (error) {
-      alert('An error occurred. Please try again later.');
-      console.error(error);
-    }
+    setCart([]);
+    updateLocalStorage([]);
+    setTotal(0);
+    setServiceFee(0);
+    setEstimatedArrival('');
   };
 
   return (
@@ -204,12 +185,23 @@ function Cart() {
         <div className='cart-price'>
           <h3>Total Amount: Kshs {total + serviceFee}</h3>
         </div>
-        <div className='col-act'>
-          <button className='order-btn' onClick={handleOrderNow}>Order Now</button>
-        </div>
+      </div>
+
+      <div className='estimated-arrival'>
+        <label htmlFor='estimatedArrival'>Estimated Arrival Time:</label>
+        <input
+          type='time'
+          id='estimatedArrival'
+          value={estimatedArrival}
+          onChange={(e) => setEstimatedArrival(e.target.value)}
+        />
+      </div>
+
+      <div className='col-act'>
+        <button className='order-btn' onClick={handleOrderNow}>Order Now</button>
       </div>
     </div>
   );
 }
 
-export default Cart;
+export default Cart;
