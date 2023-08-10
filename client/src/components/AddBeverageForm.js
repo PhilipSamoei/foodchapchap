@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useFormik } from 'formik';
-import React, { useState, useEffect } from 'react';  
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/CreateBeverages.css';
 
@@ -10,7 +10,6 @@ function CreateBeverages() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch the list of restaurants from the backend and set it to the 'restaurants' state
     async function fetchRestaurants() {
       try {
         const response = await axios.get("http://127.0.0.1:3000/restaurants");
@@ -29,13 +28,10 @@ function CreateBeverages() {
         category: "",
         price: "",
         image: "",
-        restaurant_id: "", // Here, 'restaurant_id' will hold the selected restaurant's ID
+        restaurant_id: "",
       },
       validate: (values) => {
         let errors = {};
-
-        // Validation logic
-
         return errors;
       },
       onSubmit: async (values) => {
@@ -60,7 +56,7 @@ function CreateBeverages() {
             className={`form-control ${myFormik.errors.image ? "is-invalid" : ""} `} />
           <span style={{ color: "red" }}>{myFormik.errors.image}</span>
         </div>
-          
+
         <div className='row'>
           <div className="col-lg-6">
             <label>Name</label>
@@ -106,7 +102,6 @@ function CreateBeverages() {
           </div>
         </div>
       </form>
-      {/* {JSON.stringify(myFormik.values)} */}
     </div>
   );
 }

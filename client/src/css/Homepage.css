@@ -36,7 +36,6 @@ body{
 
 }
   #scroll-container {
-    /* border: 3px solid rgb(247, 244, 244); */
     border-radius: 5px;
     overflow: hidden;
   }

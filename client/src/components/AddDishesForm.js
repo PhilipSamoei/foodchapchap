@@ -27,12 +27,10 @@ function CreateDishes() {
         category: "",
         price: "",
         image: "",
-        restaurant_id: "", // Here, 'restaurant_id' will hold the selected restaurant's ID
+        restaurant_id: "",
       },
       validate: (values) => {
         let errors = {};
-
-        // Validation logic
 
         return errors;
       },

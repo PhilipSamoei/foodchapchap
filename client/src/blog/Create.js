@@ -5,10 +5,10 @@ import '../css/Create.css';
 function Create() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [user_id, setUser_id] = useState(4); // You can change this according to your needs
+  const [user_id, setUser_id] = useState(4);
   const [publication_date, setPublication_date] = useState(
     new Date().toISOString()
-  ); // Current date and time
+  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +23,6 @@ function Create() {
     try {
       const response = await axios.post('http://127.0.0.1:3000/blogs', newBlog);
       console.log('Blog posted:', response.data);
-      // Reset form fields after successful submission
       setTitle('');
       setContent('');
     } catch (error) {
@@ -69,11 +68,11 @@ function Create() {
       width: '100px',
 
       transition: 'background-color 0.3s ease-in-out',
-    
+
     },
   };
   return (
-     
+
       <div style={styles.formContainer}>
         <h2>Create a New Blog</h2>
         <form onSubmit={handleSubmit}>
@@ -98,7 +97,7 @@ function Create() {
         </form>
       </div>
     );
-  
+
 }
 
 export default Create;

@@ -56,11 +56,10 @@ function TableDishes() {
       setLoading(false);
     }
   };
-  
+
 
   return (
     <>
-      {/* ... */}
       <div className="card-body">
         {isLoading ? (
           <img src='https://media.giphy.com/media/ZO9b1ntYVJmjZlsWlm/giphy.gif' alt="loading" />
@@ -82,7 +81,7 @@ function TableDishes() {
                     <td>{user.id}</td>
                     <td>{user.name}</td>
                     <td>{user.category}</td>
-                    <td>{user.restaurant_name}</td> {/* Display the restaurant name */}
+                    <td>{user.restaurant_name}</td>
                     <td>{user.price}</td>
                     <td>
                       {editUserId === user.id ? (
@@ -111,14 +110,11 @@ function UserEditForm({ initialValues, onCancel, onSubmit, isLoading }) {
       initialValues: {
         name: initialValues.name || "",
         category: initialValues.category || "",
-        restaurant_id: initialValues.restaurant_id || "", // Change this line
+        restaurant_id: initialValues.restaurant_id || "",
         price: initialValues.price || "",
       },
-    // Validating Forms while entering the data
     validate: (values) => {
       let errors = {};
-      // Validation logic goes here...
-
       return errors;
     },
 
@@ -158,7 +154,7 @@ function UserEditForm({ initialValues, onCancel, onSubmit, isLoading }) {
         <label>Restaurant Name</label>
         <input
           name='restaurant_id.name'
-          value={myFormik.values.restaurant_id?.name || ""}  // Safely access nested property
+          value={myFormik.values.restaurant_id?.name || ""} 
           onChange={myFormik.handleChange}
           type="text"
           className={`form-control ${myFormik.errors.restaurant_id?.name ? "is-invalid" : ""} `}

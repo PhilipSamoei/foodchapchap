@@ -27,7 +27,7 @@ function BlogList() {
   };
 
   const handleDelete = (blogId) => {
-    // Delete the blog using API
+  
     fetch(`http://127.0.0.1:3000/blogs/${blogId}`, {
       method: 'DELETE',
     })

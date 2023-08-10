@@ -57,11 +57,10 @@ function TableRestaurant() {
       setLoading(false);
     }
   };
-  
+
 
   return (
     <>
-      {/* ... */}
       <div className="card-body">
         {isLoading ? (
           <img src='https://media.giphy.com/media/ZO9b1ntYVJmjZlsWlm/giphy.gif' alt="loading" />
@@ -113,10 +112,8 @@ function UserEditForm({ initialValues, onCancel, onSubmit, isLoading }) {
       address: initialValues.address || "",
       ambience: initialValues.ambience || "",
     },
-    // Validating Forms while entering the data
     validate: (values) => {
       let errors = {};
-      // Validation logic goes here...
 
       return errors;
     },
@@ -165,7 +162,7 @@ function UserEditForm({ initialValues, onCancel, onSubmit, isLoading }) {
           <span style={{ color: "red" }}>{myFormik.errors.ambience}</span>
         </div>
 
-       
+
 
         <div className='col-lg-4 mt-3'>
           <input

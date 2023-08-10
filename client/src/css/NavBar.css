@@ -91,11 +91,8 @@ li{
     width: 100px;
     border-radius: 10px;
     text-align: center;
-    /* border: none;
-    outline: none; */
     background-color:#ff7300;
     color: #fff;
-    /* margin-top: 15px; */
 }
 
 .btn-container {

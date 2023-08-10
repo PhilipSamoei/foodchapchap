@@ -152,13 +152,18 @@ User.create(
       image: "https://i.pinimg.com/564x/da/43/84/da438437df08d8eff9bb83bbb5303fb9.jpg"
     }
   ]
-  
+
 )
 
 
 user_ids = (1..5).to_a
-
-# Create blogs using the sample data
+CartItem.create([
+  {
+    name: "pizza",
+    price: 6789,
+    quantity: 6
+  }
+])
 Blog.create([
   {
     title: "Getting Started with Blogging",
